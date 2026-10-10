@@ -1,0 +1,97 @@
+{
+  "$schema": "https://fincast.app/schemas/sources-registry.json",
+  "version": "2.0.0",
+  "lastAudited": "2026-10-06",
+  "sources": [
+    {
+      "id": "irs-tax-brackets",
+      "name": "Internal Revenue Service (IRS)",
+      "url": "https://www.irs.gov",
+      "category": "Federal Taxes & Retirement Contribution Limits",
+      "status": "Current & Verified",
+      "lastChecked": "2026-10-06",
+      "nextReview": "2026-12-31",
+      "pagesUsingSource": [
+        "pages/paycheck-tax-simulator.html",
+        "pages/financial-health-score.html",
+        "pages/methodology.html"
+      ],
+      "dataPoints": [
+        "2026 Federal Income Tax Brackets (10%, 12%, 22%, 24%, 32%, 35%, 37%)",
+        "2026 Standard Deductions ($15,000 Single / $30,000 Married)",
+        "FICA Social Security Wage Base & Medicare Rates (6.2% + 1.45%)"
+      ]
+    },
+    {
+      "id": "federal-reserve-g19",
+      "name": "Federal Reserve (Consumer Credit G.19)",
+      "url": "https://www.federalreserve.gov/releases/g19/current/",
+      "category": "Consumer Interest Rates & Credit Trends",
+      "status": "Current & Verified",
+      "lastChecked": "2026-10-06",
+      "nextReview": "2026-11-15",
+      "pagesUsingSource": [
+        "pages/debt-freedom-simulator.html",
+        "pages/financial-resilience-simulator.html",
+        "pages/methodology.html"
+      ],
+      "dataPoints": [
+        "Commercial Bank Commercial Credit Card APR Benchmarks (~21.5% - 24.5%)",
+        "Personal Loan Commercial Interest Rates (~11.5% - 13.0%)"
+      ]
+    },
+    {
+      "id": "sec-investor-gov",
+      "name": "U.S. Securities and Exchange Commission (SEC)",
+      "url": "https://www.investor.gov",
+      "category": "Compound Interest & Investment Disclosures",
+      "status": "Current & Verified",
+      "lastChecked": "2026-10-06",
+      "nextReview": "2027-01-15",
+      "pagesUsingSource": [
+        "pages/investment-simulator.html",
+        "pages/financial-life-simulator.html",
+        "pages/guide-power-of-compound-interest.html"
+      ],
+      "dataPoints": [
+        "Standard Discrete Periodic Compounding Amortization Formulas",
+        "Historical S&P 500 Nominal vs Real Return Guidelines"
+      ]
+    },
+    {
+      "id": "cfpb-dti-guidelines",
+      "name": "Consumer Financial Protection Bureau (CFPB)",
+      "url": "https://www.consumerfinance.gov",
+      "category": "Debt-to-Income & Credit Utilization Thresholds",
+      "status": "Current & Verified",
+      "lastChecked": "2026-10-06",
+      "nextReview": "2026-12-01",
+      "pagesUsingSource": [
+        "pages/financial-health-score.html",
+        "pages/mortgage-simulator.html",
+        "pages/decision-center.html"
+      ],
+      "dataPoints": [
+        "Qualified Mortgage DTI Maximum Benchmarks (<36% Total / <15% Non-mortgage)",
+        "Revolving Credit Utilization Guidelines (<30% standard, <10% ideal)"
+      ]
+    },
+    {
+      "id": "ssa-social-security",
+      "name": "Social Security Administration (SSA)",
+      "url": "https://www.ssa.gov",
+      "category": "Full Retirement Age & Primary Insurance Amount Rules",
+      "status": "Current & Verified",
+      "lastChecked": "2026-10-06",
+      "nextReview": "2027-01-01",
+      "pagesUsingSource": [
+        "pages/financial-life-simulator.html",
+        "pages/glossary.html"
+      ],
+      "dataPoints": [
+        "Full Retirement Age Guidelines (Age 67 for born 1960+)",
+        "Early Retirement Claiming Reductions (Age 62: ~30% benefit reduction)"
+      ]
+    }
+  ]
+}

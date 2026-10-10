@@ -1,0 +1,173 @@
+/* ==========================================================================
+   FinCast Responsive & Mobile Optimization Styles
+   Mobile-first touches, Hamburger Menu, Sticky Action Bars, Touch Sliders
+   ========================================================================== */
+
+/* Mobile Nav Toggle Button */
+.mobile-nav-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+@media (max-width: 900px) {
+  .mobile-nav-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 72px;
+    left: 0;
+    width: 100%;
+    background: var(--bg-surface);
+    border-bottom: 1px solid var(--border-subtle);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5rem;
+    gap: 1rem;
+    transform: translateY(-150%);
+    transition: transform 0.3s ease;
+    z-index: 99;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .nav-links.open {
+    transform: translateY(0);
+  }
+
+  .nav-link {
+    width: 100%;
+    padding: 0.75rem 0;
+    font-size: 1.05rem;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .grid-cols-2,
+  .grid-cols-3,
+  .grid-cols-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .related-tools-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .health-pillars-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .comparison-table-wrap {
+    grid-template-columns: 1fr;
+  }
+
+  .delta-metrics-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Mobile Sticky Action Bar (appears on small screens to jump to results) */
+.mobile-sticky-action {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border-subtle);
+  padding: 0.75rem 1.25rem;
+  z-index: 90;
+  box-shadow: 0 -4px 12px rgba(0,0,0,0.3);
+}
+
+@media (max-width: 768px) {
+  .mobile-sticky-action {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  body {
+    padding-bottom: 60px; /* Space for sticky bar if present */
+  }
+
+  .section {
+    padding: 2.5rem 0;
+  }
+
+  .section-hero {
+    padding: 2.75rem 0 2rem 0;
+  }
+
+  .hero-glow {
+    width: 100%;
+  }
+
+  .btn-lg {
+    font-size: 1rem;
+    padding: 0.75rem 1.25rem;
+  }
+
+  .calc-panel-results {
+    position: static;
+    margin-top: 1.5rem;
+  }
+}
+
+/* Touch Friendly Range Sliders on Mobile */
+@media (pointer: coarse) {
+  .range-slider {
+    height: 10px;
+  }
+  
+  .range-slider::-webkit-slider-thumb {
+    width: 24px;
+    height: 24px;
+  }
+
+  .range-slider::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+  }
+
+  .btn {
+    min-height: 44px;
+  }
+}
+
+/* Print Stylesheet */
+@media print {
+  .site-header,
+  .site-footer,
+  .search-trigger-btn,
+  .mobile-sticky-action,
+  .ad-slot-container,
+  .related-tools-section,
+  .modal-backdrop {
+    display: none !important;
+  }
+
+  body {
+    background: #FFF !important;
+    color: #000 !important;
+  }
+
+  .calc-panel-results,
+  .calc-panel-input {
+    border: 1px solid #CCC !important;
+    box-shadow: none !important;
+    background: #FFF !important;
+    color: #000 !important;
+  }
+}

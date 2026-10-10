@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Internal SEO Health & AdSense Pre-Launch Auditor | FinCast Internal</title>
+  <meta name="description" content="Internal real-time SEO health auditor and AdSense policy compliance validator for FinCast decision platform.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://fincast.app/pages/seo-dashboard.html">
+
+  <!-- Open Graph / Social Cards -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://fincast.app/pages/seo-dashboard.html">
+  <meta property="og:title" content="Internal SEO Health & AdSense Pre-Launch Auditor | FinCast Internal">
+  <meta property="og:description" content="Internal real-time SEO health auditor and AdSense policy compliance validator for FinCast decision platform.">
+  <meta property="og:image" content="https://fincast.app/assets/og-preview.svg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Internal SEO Health & AdSense Pre-Launch Auditor | FinCast Internal">
+  <meta name="twitter:description" content="Internal real-time SEO health auditor and AdSense policy compliance validator for FinCast decision platform.">
+  <meta name="twitter:image" content="https://fincast.app/assets/og-preview.svg">
+  <meta property="og:site_name" content="FinCast">
+
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/tools.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="../index.html" class="brand-logo" aria-label="FinCast Home">
+        <svg viewBox="0 0 32 32" width="28" height="28" fill="none">
+          <rect width="32" height="32" rx="8" fill="#1E293B"/>
+          <path d="M7 23L13 15L18 19L25 9" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="25" cy="9" r="2.5" fill="#38BDF8"/>
+        </svg>
+        <span>Fin<span class="highlight">Cast</span> <span class="badge badge-amber" style="font-size: 0.65rem; margin-left: 0.5rem;">Internal Dashboard</span></span>
+      </a>
+
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-links">
+          <li><a href="../index.html" class="nav-link">Platform Home</a></li>
+          <li><a href="tools-directory.html" class="nav-link">Tools</a></li>
+          <li><a href="trust-center.html" class="nav-link">Trust Center</a></li>
+          <li><a href="seo-dashboard.html" class="nav-link active">SEO Auditor</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="search-trigger-btn" aria-label="Search tools">
+          <span>🔍</span>
+          <span>Search</span>
+          <kbd>Ctrl+K</kbd>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top: 2.5rem; padding-bottom: 5rem; max-width: 960px;">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;">
+      <div>
+        <div class="badge badge-cyan" style="margin-bottom: 0.5rem;">⚙️ Internal Architecture Diagnostic</div>
+        <h1>Platform SEO &amp; AdSense Health Auditor</h1>
+        <p style="color: var(--text-secondary);">Registry diagnostics and a publisher-readiness checklist with explicit manual-review and setup states.</p>
+      </div>
+      <div style="text-align: right;">
+        <div style="font-size: 2.5rem; font-weight: 800; color: #10B981; font-family: var(--font-mono);" id="audit-score">—</div>
+        <div style="font-size: 0.75rem; color: var(--text-muted);">Registry Checks Only</div>
+      </div>
+    </div>
+
+    <!-- Quick Stat Cards -->
+    <div class="grid grid-cols-4" style="margin-bottom: 2.5rem;">
+      <div class="card">
+        <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Active Core Tools</div>
+        <div id="active-tool-count" style="font-size: 1.75rem; font-weight: 800; color: var(--text-primary); margin-top: 0.25rem;">—</div>
+        <div style="font-size: 0.75rem; color: #34D399; margin-top: 0.25rem;">Tools in registry</div>
+      </div>
+      <div class="card">
+        <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Keyword Records</div>
+        <div id="keyword-count" style="font-size: 1.75rem; font-weight: 800; color: var(--text-primary); margin-top: 0.25rem;">—</div>
+        <div style="font-size: 0.75rem; color: var(--brand-secondary); margin-top: 0.25rem;">Terms in keyword data</div>
+      </div>
+      <div class="card">
+        <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Institutional Sources</div>
+        <div id="source-count" style="font-size: 1.75rem; font-weight: 800; color: var(--text-primary); margin-top: 0.25rem;">—</div>
+        <div id="source-names" style="font-size: 0.75rem; color: #34D399; margin-top: 0.25rem;">Sources in registry</div>
+      </div>
+      <div class="card">
+        <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Publisher Policy</div>
+        <div style="font-size: 1.3rem; font-weight: 800; color: #F59E0B; margin-top: 0.25rem;">Setup Required</div>
+        <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.25rem;">Publisher ID &amp; approval not verified</div>
+      </div>
+    </div>
+
+    <!-- AdSense Pre-Launch Readiness Checklist -->
+    <div class="card" style="margin-bottom: 2.5rem;">
+      <div class="calc-section-header">
+        <h3><span>📋</span> Google AdSense Pre-Launch Quality Checklist</h3>
+        <span class="badge badge-amber">Not Ready to Activate</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 0.75rem;" id="checklist-mount">
+        <!-- Rendered dynamically -->
+      </div>
+      <div style="margin-top: 1.25rem; padding: 0.85rem 1rem; background: rgba(16, 185, 129, 0.08); border-radius: var(--radius-md); font-size: 0.85rem; color: #6EE7B7;">
+        💡 <strong>Monetization Note:</strong> Ads are disabled and the publisher ID is a placeholder. Google account approval, a real publisher ID, the AdSense loader, and policy review are still required before activation.
+      </div>
+    </div>
+
+    <!-- Passed Checks & Canonical Validation -->
+    <div class="card">
+      <div class="calc-section-header">
+        <h3><span>🛡️</span> Technical &amp; Crawlability Audit Details</h3>
+      </div>
+      <div id="passed-checks-mount" style="display: flex; flex-direction: column; gap: 0.75rem;">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </main>
+
+  <script src="../js/config.js"></script>
+  <script src="../js/engine/seo-audit-engine.js"></script>
+  <script src="../js/engine/keyword-cluster-engine.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async function () {
+      let keywords = [];
+      let sources = [];
+      let features = (window.FinCastConfig && window.FinCastConfig.toolsRegistry) || [];
+
+      try {
+        const kwRes = await fetch('../data/keywords.json');
+        const kwData = await kwRes.json();
+        keywords = kwData.keywords || [];
+
+        const srcRes = await fetch('../data/sources.json');
+        const srcData = await srcRes.json();
+        sources = srcData.sources || [];
+      } catch (e) {
+        // Fallback defaults
+      }
+
+      const audit = window.FinCastSeoAudit.auditPlatform(features, keywords, sources);
+
+      document.getElementById('audit-score').textContent = `${audit.healthScore}/100`;
+      document.getElementById('active-tool-count').textContent = String(features.length);
+      document.getElementById('keyword-count').textContent = String(keywords.length);
+      document.getElementById('source-count').textContent = String(sources.length);
+      document.getElementById('source-names').textContent = sources.map(source => source.name).join(', ');
+
+      const checklistMount = document.getElementById('checklist-mount');
+      checklistMount.innerHTML = audit.adSenseChecklist.map(item => `
+        <div style="display: flex; align-items: center; justify-content: space-between; padding: 0.65rem 0.85rem; background: var(--bg-surface-elevated); border-radius: var(--radius-sm); font-size: 0.9rem;">
+          <span style="color: var(--text-primary);">${item.passed === true ? '✓' : item.passed === false ? '!' : '○'} ${item.label}</span>
+          <span class="badge ${item.passed === true ? 'badge-emerald' : 'badge-amber'}">${item.passed === true ? 'Code check passed' : item.passed === false ? 'Action required' : 'Manual review'}</span>
+        </div>
+      `).join('');
+
+      const checksMount = document.getElementById('passed-checks-mount');
+      checksMount.innerHTML = audit.passedChecks.map(c => `
+        <div style="padding: 0.85rem; background: var(--bg-surface-elevated); border-radius: var(--radius-sm);">
+          <div style="font-weight: 700; color: var(--brand-primary); font-size: 0.95rem;">✓ ${c.name}</div>
+          <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">${c.detail}</div>
+        </div>
+      `).join('');
+    });
+  </script>
+</body>
+</html>

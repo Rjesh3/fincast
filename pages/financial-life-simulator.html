@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Financial Life & Net Worth Simulator (2026–2050+) | FinCast</title>
+  <meta name="description" content="Simulate your multi-decade financial journey. Forecast net worth trajectories, FIRE milestones, savings rate acceleration, and retirement nest eggs.">
+  <meta name="keywords" content="net worth simulator, financial independence calculator, fire calculator, lifetime wealth forecast, retirement projection">
+  <link rel="canonical" href="https://fincast.app/pages/financial-life-simulator.html">
+
+  <!-- Open Graph / Social Cards -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://fincast.app/pages/financial-life-simulator.html">
+  <meta property="og:title" content="Financial Life & Net Worth Simulator (2026–2050+) | FinCast">
+  <meta property="og:description" content="Simulate your multi-decade financial journey. Forecast net worth trajectories, FIRE milestones, savings rate acceleration, and retirement nest eggs.">
+  <meta property="og:image" content="https://fincast.app/assets/og-preview.svg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Financial Life & Net Worth Simulator (2026–2050+) | FinCast">
+  <meta name="twitter:description" content="Simulate your multi-decade financial journey. Forecast net worth trajectories, FIRE milestones, savings rate acceleration, and retirement nest eggs.">
+  <meta name="twitter:image" content="https://fincast.app/assets/og-preview.svg">
+  <meta property="og:site_name" content="FinCast">
+
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/tools.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Financial Life & Net Worth Simulator (2026–2050+) | FinCast",
+    "description": "Simulate your multi-decade financial journey. Forecast net worth trajectories, FIRE milestones, savings rate acceleration, and retirement nest eggs.",
+    "url": "https://fincast.app/pages/financial-life-simulator.html",
+    "publisher": {
+      "@type": "Organization",
+      "name": "FinCast",
+      "logo": "https://fincast.app/assets/logo.svg"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="../index.html" class="brand-logo" aria-label="FinCast Home">
+        <svg viewBox="0 0 32 32" width="28" height="28" fill="none">
+          <rect width="32" height="32" rx="8" fill="#1E293B"/>
+          <path d="M7 23L13 15L18 19L25 9" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="25" cy="9" r="2.5" fill="#38BDF8"/>
+        </svg>
+        <span>Fin<span class="highlight">Cast</span></span>
+      </a>
+
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-links">
+          <li><a href="debt-freedom-simulator.html" class="nav-link">Debt Freedom</a></li>
+          <li><a href="investment-simulator.html" class="nav-link">Investment What-If</a></li>
+          <li><a href="financial-life-simulator.html" class="nav-link active">Life Simulator</a></li>
+          <li><a href="decision-center.html" class="nav-link">Decision Center</a></li>
+          <li><a href="tools-directory.html" class="nav-link">All Tools</a></li>
+          <li><a href="trust-center.html" class="nav-link">Trust Center</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="search-trigger-btn" aria-label="Search tools">
+          <span>🔍</span>
+          <span>Search</span>
+          <kbd>Ctrl+K</kbd>
+        </button>
+        <button class="mobile-nav-toggle" aria-label="Open mobile menu" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top: 2rem; padding-bottom: 4rem;">
+    <ul class="breadcrumb">
+      <li><a href="../index.html">Home</a></li>
+      <li class="breadcrumb-separator">/</li>
+      <li><a href="tools-directory.html">Tools</a></li>
+      <li class="breadcrumb-separator">/</li>
+      <li aria-current="page">Financial Life Simulator</li>
+    </ul>
+
+    <div style="max-width: 800px; margin-bottom: 2rem;">
+      <div class="badge badge-cyan" style="margin-bottom: 0.75rem;">🔮 Multi-Decade Life Planning</div>
+      <h1>Financial Life &amp; Net Worth Simulator</h1>
+      <p style="font-size: 1.1rem; margin-top: 0.5rem;">
+        Forecast your total net worth trajectory from 2026 to 2050+. Simulate compounding wealth, annual wage increases, career milestones, and pinpoint your exact Financial Independence (FIRE) date.
+      </p>
+    </div>
+
+    <!-- Ad Hook -->
+    <div class="ad-slot-container" data-ad-slot="top-banner"></div>
+
+    <div class="calculator-layout">
+      <!-- Inputs -->
+      <div class="calc-panel-input">
+        <div class="calc-section-header">
+          <h3><span>🧭</span> Life Stage Parameters</h3>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;">
+          <div>
+            <label class="form-label" for="life-age">Current Age</label>
+            <input type="number" id="life-age" min="18" max="75" value="30" class="form-control" />
+          </div>
+          <div>
+            <label class="form-label" for="life-retire-age">Target Retirement Age</label>
+            <input type="number" id="life-retire-age" min="35" max="85" value="62" class="form-control" />
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;">
+          <div>
+            <label class="form-label" for="life-nw">Starting Net Worth ($)</label>
+            <div class="input-with-affix">
+              <span class="input-affix-prefix">$</span>
+              <input type="number" id="life-nw" step="5000" value="35000" class="form-control form-control-has-prefix" />
+            </div>
+          </div>
+          <div>
+            <label class="form-label" for="life-income">Annual Gross Income ($)</label>
+            <div class="input-with-affix">
+              <span class="input-affix-prefix">$</span>
+              <input type="number" id="life-income" min="0" step="5000" value="85000" class="form-control form-control-has-prefix" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Savings Rate Slider -->
+        <div class="form-group">
+          <div class="form-label">
+            <span>Annual Savings &amp; Investing Rate (%)</span>
+            <span id="life-savings-rate-label" style="font-weight: 700; color: var(--brand-primary);">20%</span>
+          </div>
+          <div class="slider-group">
+            <input type="range" id="life-savings-rate" class="range-slider" min="5" max="60" step="1" value="20" aria-label="Savings rate slider" />
+            <div class="slider-labels">
+              <span>5% (Basic)</span>
+              <span>20% (Recommended)</span>
+              <span>60% (Aggressive FIRE)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Expected Market Return -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div>
+            <label class="form-label" for="life-return">Annual Return (%)</label>
+            <div class="input-with-affix">
+              <input type="number" id="life-return" min="2" max="15" step="0.5" value="8.0" class="form-control form-control-has-suffix" />
+              <span class="input-affix-suffix">%</span>
+            </div>
+          </div>
+          <div>
+            <label class="form-label" for="life-raise">Annual Wage Raise (%)</label>
+            <div class="input-with-affix">
+              <input type="number" id="life-raise" min="0" max="10" step="0.5" value="2.5" class="form-control form-control-has-suffix" />
+              <span class="input-affix-suffix">%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Results -->
+      <div class="calc-panel-results">
+        <div class="calc-section-header">
+          <h3><span>📈</span> 2026–2050+ Projection</h3>
+        </div>
+
+        <div class="delta-highlight-card" style="background: linear-gradient(135deg, #0C4A6E 0%, #064E3B 100%);">
+          <div class="delta-title" style="color: #7DD3FC;">✦ Net Worth Trajectory</div>
+          <div class="delta-metrics-grid">
+            <div class="delta-metric-item">
+              <p>Projected Peak Net Worth</p>
+              <h4 id="life-peak-nw">$0</h4>
+            </div>
+            <div class="delta-metric-item">
+              <p>FIRE Milestone Date</p>
+              <h4 id="life-fire-year" style="color: #6EE7B7;">Calculating...</h4>
+            </div>
+          </div>
+          <div style="margin-top: 0.75rem; font-size: 0.8rem; color: #BAE6FD;" id="life-summary-tag"></div>
+        </div>
+
+        <div class="chart-container">
+          <div class="chart-header">
+            <span class="chart-title">Net Worth Trajectory by Age</span>
+          </div>
+          <div id="life-chart-mount" class="chart-svg-wrap"></div>
+        </div>
+
+        <div class="data-table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Year</th>
+                <th>Age</th>
+                <th>Projected Net Worth</th>
+                <th>Annual Investment Growth</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="life-table-body">
+              <!-- Dynamically rendered -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div id="related-tools-mount"></div>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="../index.html" class="brand-logo" aria-label="FinCast Home">
+            <svg viewBox="0 0 32 32" width="24" height="24" fill="none">
+              <rect width="32" height="32" rx="8" fill="#1E293B"/>
+              <path d="M7 23L13 15L18 19L25 9" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="25" cy="9" r="2.5" fill="#38BDF8"/>
+            </svg>
+            <span>Fin<span class="highlight">Cast</span></span>
+          </a>
+          <p>Don’t just calculate it. See what happens.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Simulators</h4>
+          <ul>
+            <li><a href="debt-freedom-simulator.html">Debt Freedom</a></li>
+            <li><a href="investment-simulator.html">Investment What-If</a></li>
+            <li><a href="financial-life-simulator.html">Life Simulator</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Trust Center</h4>
+          <ul>
+            <li><a href="trust-center.html">Trust Center</a></li>
+            <li><a href="methodology.html">Methodology</a></li>
+            <li><a href="sources.html">Data Sources</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="disclaimer.html">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 FinCast. All rights reserved. Mathematical financial life forecasting.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/config.js"></script>
+  <script src="../js/analytics.js"></script>
+  <script src="../js/engine/life-simulator-engine.js"></script>
+  <script src="../js/components/svg-charts.js"></script>
+  <script src="../js/components/tool-finder.js"></script>
+  <script src="../js/components/ad-manager.js"></script>
+  <script src="../js/components/related-tools.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const inputs = ['life-age', 'life-retire-age', 'life-nw', 'life-income', 'life-savings-rate', 'life-return', 'life-raise'];
+      const savingsSlider = document.getElementById('life-savings-rate');
+      const savingsLabel = document.getElementById('life-savings-rate-label');
+
+      function calculate() {
+        const options = {
+          currentAge: Number(document.getElementById('life-age').value) || 30,
+          retirementAge: Number(document.getElementById('life-retire-age').value) || 62,
+          currentNetWorth: Number(document.getElementById('life-nw').value) || 35000,
+          annualIncome: Number(document.getElementById('life-income').value) || 85000,
+          savingsRate: Number(document.getElementById('life-savings-rate').value) || 20,
+          annualReturn: Number(document.getElementById('life-return').value) || 8.0,
+          incomeGrowthRate: Number(document.getElementById('life-raise').value) || 2.5
+        };
+
+        savingsLabel.textContent = `${options.savingsRate}%`;
+
+        const res = LifeSimulatorEngine.projectTrajectory(options);
+
+        document.getElementById('life-peak-nw').textContent = `$${res.finalNetWorth.toLocaleString()}`;
+        document.getElementById('life-fire-year').textContent = res.fireReachedYear ? `Year ${res.fireReachedYear}` : 'Post-Retirement';
+        document.getElementById('life-summary-tag').textContent = res.fireReachedYear
+          ? `Your portfolio surpasses the $${res.fireTarget.toLocaleString()} FIRE threshold by year ${res.fireReachedYear}.`
+          : `At a ${options.savingsRate}% savings rate, you achieve retirement security at target age ${options.retirementAge}.`;
+
+        const chartMount = document.getElementById('life-chart-mount');
+        if (chartMount && window.FinCastCharts) {
+          const dataA = res.timeline.map(t => ({ value: t.netWorth }));
+          window.FinCastCharts.renderLineChart(chartMount, { dataA, labelA: 'Net Worth Curve' });
+        }
+
+        const tbody = document.getElementById('life-table-body');
+        if (tbody) {
+          // Sample 7-8 key milestones
+          const step = Math.max(1, Math.floor(res.timeline.length / 8));
+          const sampled = res.timeline.filter((_, idx) => idx % step === 0 || idx === res.timeline.length - 1);
+
+          tbody.innerHTML = sampled.map(t => `
+            <tr>
+              <td>${t.year}</td>
+              <td>Age ${t.age}</td>
+              <td style="font-weight: 700; color: var(--brand-primary);">$${t.netWorth.toLocaleString()}</td>
+              <td>+$${t.investmentGrowth.toLocaleString()}</td>
+              <td><span class="badge ${t.isRetired ? 'badge-amber' : 'badge-emerald'}">${t.isRetired ? 'Retired' : 'Accumulation'}</span></td>
+            </tr>
+          `).join('');
+        }
+      }
+
+      inputs.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.addEventListener('input', calculate);
+      });
+
+      calculate();
+      if (window.FinCastRelatedTools) window.FinCastRelatedTools.render('related-tools-mount', 'financial-life-simulator');
+    });
+  </script>
+</body>
+</html>

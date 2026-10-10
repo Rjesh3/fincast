@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rent vs Buy Home Decision Simulator — Real Estate Wealth Calculator | FinCast</title>
+  <meta name="description" content="Compare buying a home vs renting & investing the difference over 5 to 30 years. Factor in property taxes, maintenance, home appreciation, stock market index returns, and equity.">
+  <meta name="keywords" content="rent vs buy calculator, home buying simulator, buying vs renting comparison, real estate net worth calculator, rent inflation vs home appreciation">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://fincast.app/pages/rent-vs-buy-simulator.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://fincast.app/pages/rent-vs-buy-simulator.html">
+  <meta property="og:title" content="Rent vs Buy Home Decision Simulator — FinCast">
+  <meta property="og:description" content="Simulate long-term wealth trajectories: Homeowner Equity vs Renting & Stock Market Index Investing.">
+  <meta property="og:image" content="https://fincast.app/assets/og-preview.svg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Rent vs Buy Home Decision Simulator — Real Estate Wealth Calculator | FinCast">
+  <meta name="twitter:description" content="Compare buying a home vs renting & investing the difference over 5 to 30 years. Factor in property taxes, maintenance, home appreciation, stock market index returns, and equity.">
+  <meta name="twitter:image" content="https://fincast.app/assets/og-preview.svg">
+
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/tools.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "FinCast Rent vs Buy Home Simulator",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "All modern web browsers",
+        "offers": { "@type": "Offer", "price": "0.00", "priceCurrency": "USD" },
+        "description": "Simulate side-by-side long term wealth accumulation of buying real estate vs renting and investing down payment and monthly cash flow savings."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincast.app/" },
+          { "@type": "ListItem", "position": 2, "name": "Tools Directory", "item": "https://fincast.app/pages/tools-directory.html" },
+          { "@type": "ListItem", "position": 3, "name": "Rent vs Buy Simulator", "item": "https://fincast.app/pages/rent-vs-buy-simulator.html" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="../index.html" class="brand-logo" aria-label="FinCast Home">
+        <svg viewBox="0 0 32 32" width="28" height="28" fill="none">
+          <rect width="32" height="32" rx="8" fill="#1E293B"/>
+          <path d="M7 23L13 15L18 19L25 9" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="25" cy="9" r="2.5" fill="#38BDF8"/>
+        </svg>
+        <span>Fin<span class="highlight">Cast</span></span>
+      </a>
+
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-links">
+          <li><a href="debt-freedom-simulator.html" class="nav-link">Debt Freedom</a></li>
+          <li><a href="investment-simulator.html" class="nav-link">Investment What-If</a></li>
+          <li><a href="rent-vs-buy-simulator.html" class="nav-link active">Rent vs Buy</a></li>
+          <li><a href="mortgage-simulator.html" class="nav-link">Mortgage</a></li>
+          <li><a href="tools-directory.html" class="nav-link">All Tools</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <select id="currency-select" class="currency-select" aria-label="Select Currency">
+          <option value="$">$ (USD)</option>
+          <option value="€">€ (EUR)</option>
+          <option value="£">£ (GBP)</option>
+        </select>
+        <button id="theme-toggle-btn" class="theme-toggle-btn">🌙</button>
+        <button class="search-trigger-btn" aria-label="Search tools">🔍 <kbd>Ctrl+K</kbd></button>
+        <button class="mobile-nav-toggle" aria-label="Open mobile menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top: 2rem; padding-bottom: 4rem;">
+    <ul class="breadcrumb">
+      <li><a href="../index.html">Home</a></li>
+      <li class="breadcrumb-separator">/</li>
+      <li><a href="tools-directory.html">Tools</a></li>
+      <li class="breadcrumb-separator">/</li>
+      <li aria-current="page">Rent vs Buy Simulator</li>
+    </ul>
+
+    <div style="max-width: 800px; margin-bottom: 2rem;">
+      <div class="badge badge-cyan" style="margin-bottom: 0.75rem;">🏡 Real Estate vs Index Investing</div>
+      <h1>Rent vs. Buy Decision Simulator</h1>
+      <p style="font-size: 1.1rem; margin-top: 0.5rem;">
+        Is buying a home always better than renting? Simulate true long-term net worth. Compare property appreciation &amp; mortgage equity against investing your down payment in the stock market.
+      </p>
+    </div>
+
+    <!-- Presets -->
+    <div style="margin-bottom: 2rem;">
+      <div style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.75rem;">⚡ Quick Scenario Presets</div>
+      <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+        <button class="btn btn-sm btn-outline preset-btn" data-price="400000" data-rent="2200" data-rate="6.5" data-years="15">
+          🏡 Starter Home ($400k home vs $2.2k rent)
+        </button>
+        <button class="btn btn-sm btn-outline preset-btn" data-price="650000" data-rent="3200" data-rate="6.8" data-years="20">
+          🌆 High Cost City ($650k home vs $3.2k rent)
+        </button>
+      </div>
+    </div>
+
+    <div class="calculator-layout">
+      <!-- Input Panel -->
+      <div class="calc-panel-input">
+        <div class="calc-section-header">
+          <h3><span>🏡</span> Home Buying Scenario</h3>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+          <div class="form-group">
+            <label class="form-label" for="rvb-price">Home Price ($)</label>
+            <input type="number" id="rvb-price" step="25000" value="425000" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="rvb-down-pct">Down Payment (%)</label>
+            <input type="number" id="rvb-down-pct" min="3" max="50" value="20" class="form-control" />
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;">
+          <div class="form-group">
+            <label class="form-label" for="rvb-rate">Mortgage Interest Rate (%)</label>
+            <input type="number" id="rvb-rate" step="0.25" value="6.5" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="rvb-appreciation">Home Appreciation (%/yr)</label>
+            <input type="number" id="rvb-appreciation" step="0.5" value="3.5" class="form-control" />
+          </div>
+        </div>
+
+        <div class="calc-section-header" style="margin-top: 1.5rem;">
+          <h3><span>🏢</span> Renting &amp; Investing Scenario</h3>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+          <div class="form-group">
+            <label class="form-label" for="rvb-rent">Current Monthly Rent ($)</label>
+            <input type="number" id="rvb-rent" step="100" value="2300" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="rvb-rent-inflation">Rent Increase (%/yr)</label>
+            <input type="number" id="rvb-rent-inflation" step="0.5" value="3.0" class="form-control" />
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div class="form-group">
+            <label class="form-label" for="rvb-stock-return">Stock Market Return (%)</label>
+            <input type="number" id="rvb-stock-return" step="0.5" value="8.0" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="rvb-years">Time Horizon (Years)</label>
+            <input type="number" id="rvb-years" min="5" max="30" value="15" class="form-control" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Output Panel -->
+      <div class="calc-panel-results">
+        <div class="delta-highlight-card" style="margin-bottom: 1.5rem;">
+          <div class="delta-metrics-grid">
+            <div class="delta-metric-item">
+              <p>Financially Ahead Strategy</p>
+              <h4 id="res-rvb-winner" style="color: var(--brand-primary); font-size: 1.75rem;">Buying Wins</h4>
+              <span id="res-rvb-diff" style="font-size: 0.8rem; color: var(--text-muted);">+$145,200 Net Worth Difference</span>
+            </div>
+            <div class="delta-metric-item">
+              <p>Breakeven Crossover</p>
+              <h4 id="res-rvb-crossover" style="font-size: 1.75rem;">Year 6</h4>
+              <span style="font-size: 0.8rem; color: var(--text-secondary);">Equity overtakes rent investing</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); padding: 1rem; border-radius: var(--radius-md);">
+            <div style="font-size: 0.8rem; color: var(--text-muted);">BUYER NET WORTH</div>
+            <h3 id="res-rvb-buyer-nw" style="font-size: 1.5rem; color: var(--brand-primary); margin-top: 0.25rem;">$485,000</h3>
+          </div>
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); padding: 1rem; border-radius: var(--radius-md);">
+            <div style="font-size: 0.8rem; color: var(--text-muted);">RENTER NET WORTH</div>
+            <h3 id="res-rvb-renter-nw" style="font-size: 1.5rem; color: var(--brand-secondary); margin-top: 0.25rem;">$339,800</h3>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 1.5rem;">
+          <h4 style="font-size: 0.95rem; margin-bottom: 0.75rem;">📊 Net Worth Accumulation Curve</h4>
+          <div id="rvb-chart-mount" style="min-height: 240px; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 1rem;"></div>
+        </div>
+
+        <div id="share-mount"></div>
+      </div>
+    </div>
+
+    <div id="related-tools-mount" style="margin-top: 4rem;"></div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">&copy; 2026 FinCast. Free &amp; Private Financial Simulators.</div>
+    </div>
+  </footer>
+
+  <script src="../js/config.js"></script>
+  <script src="../js/analytics.js"></script>
+  <script src="../js/engine/rent-vs-buy-engine.js"></script>
+  <script src="../js/components/svg-charts.js"></script>
+  <script src="../js/components/share-modal.js"></script>
+  <script src="../js/components/related-tools.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const inputs = [
+        'rvb-price', 'rvb-down-pct', 'rvb-rate', 'rvb-appreciation',
+        'rvb-rent', 'rvb-rent-inflation', 'rvb-stock-return', 'rvb-years'
+      ];
+
+      let currSym = '$';
+
+      function calculate() {
+        if (!window.RentVsBuyEngine) return;
+
+        const options = {
+          homePrice: Number(document.getElementById('rvb-price').value),
+          downPaymentPercent: Number(document.getElementById('rvb-down-pct').value),
+          mortgageRate: Number(document.getElementById('rvb-rate').value),
+          homeAppreciationRate: Number(document.getElementById('rvb-appreciation').value),
+          monthlyRent: Number(document.getElementById('rvb-rent').value),
+          rentInflationRate: Number(document.getElementById('rvb-rent-inflation').value),
+          stockMarketReturn: Number(document.getElementById('rvb-stock-return').value),
+          simulationYears: Number(document.getElementById('rvb-years').value)
+        };
+
+        const res = window.RentVsBuyEngine.compareRentVsBuy(options);
+
+        document.getElementById('res-rvb-winner').textContent = `${res.winner} Wins`;
+        document.getElementById('res-rvb-diff').textContent = `+${currSym}${res.difference.toLocaleString()} Net Worth Difference`;
+        document.getElementById('res-rvb-crossover').textContent = res.crossoverYear ? `Year ${res.crossoverYear}` : 'N/A';
+        document.getElementById('res-rvb-buyer-nw').textContent = `${currSym}${res.finalBuyerNW.toLocaleString()}`;
+        document.getElementById('res-rvb-renter-nw').textContent = `${currSym}${res.finalRenterNW.toLocaleString()}`;
+
+        const chartMount = document.getElementById('rvb-chart-mount');
+        if (chartMount && window.FinCastCharts) {
+          const dataA = res.yearlySchedule.map(s => ({ value: s.buyerNetWorth }));
+          const dataB = res.yearlySchedule.map(s => ({ value: s.renterNetWorth }));
+          window.FinCastCharts.renderLineChart(chartMount, {
+            dataA,
+            dataB,
+            labelA: 'Buyer Net Worth',
+            labelB: 'Renter Net Worth'
+          });
+        }
+      }
+
+      inputs.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.addEventListener('input', calculate);
+      });
+
+      document.querySelectorAll('.preset-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.getElementById('rvb-price').value = btn.dataset.price;
+          document.getElementById('rvb-rent').value = btn.dataset.rent;
+          document.getElementById('rvb-rate').value = btn.dataset.rate;
+          document.getElementById('rvb-years').value = btn.dataset.years;
+          calculate();
+        });
+      });
+
+      calculate();
+      if (window.FinCastRelatedTools) window.FinCastRelatedTools.render('related-tools-mount', 'rent-vs-buy');
+    });
+  </script>
+</body>
+</html>

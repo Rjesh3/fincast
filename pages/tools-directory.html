@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Financial Calculators & Simulators Ecosystem | FinCast</title>
+  <meta name="description" content="Explore FinCast's complete ecosystem of 12+ free, interactive financial decision simulators: Debt Payoff, FIRE Early Retirement, Investment What-If, Emergency Fund, Rent vs Buy, Side Hustle Tax, and Mortgage tools.">
+  <meta name="keywords" content="financial calculators, debt payoff simulator, investment calculator, fire calculator, emergency fund calculator, rent vs buy simulator, side hustle tax calculator, mortgage simulator">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://fincast.app/pages/tools-directory.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://fincast.app/pages/tools-directory.html">
+  <meta property="og:title" content="All Financial Calculators & Simulators Ecosystem — FinCast">
+  <meta property="og:description" content="100% free, private, client-side financial decision tools built for clarity and wealth acceleration.">
+  <meta property="og:image" content="https://fincast.app/assets/og-preview.svg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="All Financial Calculators & Simulators Ecosystem | FinCast">
+  <meta name="twitter:description" content="Explore FinCast's complete ecosystem of 12+ free, interactive financial decision simulators.">
+  <meta name="twitter:image" content="https://fincast.app/assets/og-preview.svg">
+
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/tools.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ItemPage",
+        "name": "FinCast Financial Decision Simulators Directory",
+        "description": "Directory of interactive personal finance decision tools."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincast.app/" },
+          { "@type": "ListItem", "position": 2, "name": "Tools Ecosystem", "item": "https://fincast.app/pages/tools-directory.html" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="../index.html" class="brand-logo" aria-label="FinCast Home">
+        <svg viewBox="0 0 32 32" width="28" height="28" fill="none">
+          <rect width="32" height="32" rx="8" fill="#1E293B"/>
+          <path d="M7 23L13 15L18 19L25 9" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="25" cy="9" r="2.5" fill="#38BDF8"/>
+        </svg>
+        <span>Fin<span class="highlight">Cast</span></span>
+      </a>
+
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-links">
+          <li><a href="debt-freedom-simulator.html" class="nav-link">Debt Freedom</a></li>
+          <li><a href="investment-simulator.html" class="nav-link">Investment What-If</a></li>
+          <li><a href="fire-simulator.html" class="nav-link">FIRE Simulator</a></li>
+          <li><a href="financial-health-score.html" class="nav-link">Health Score</a></li>
+          <li><a href="tools-directory.html" class="nav-link active">All Tools</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="theme-toggle-btn" class="theme-toggle-btn">🌙</button>
+        <button class="search-trigger-btn" aria-label="Search tools">
+          <span>🔍</span>
+          <span>Search</span>
+          <kbd>Ctrl+K</kbd>
+        </button>
+        <button class="mobile-nav-toggle" aria-label="Open mobile menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top: 2.5rem; padding-bottom: 5rem;">
+    <!-- Breadcrumbs -->
+    <ul class="breadcrumb">
+      <li><a href="../index.html">Home</a></li>
+      <li class="breadcrumb-separator">/</li>
+      <li aria-current="page">Tools Ecosystem</li>
+    </ul>
+
+    <div style="max-width: 800px; margin-bottom: 2.5rem;">
+      <div class="badge badge-emerald" style="margin-bottom: 0.75rem;">🧭 Complete Simulator Ecosystem</div>
+      <h1>Financial Decision Simulators</h1>
+      <p style="font-size: 1.15rem; margin-top: 0.5rem;">
+        Choose a simulator to test your financial scenarios, compare strategies, and see the exact compound difference in your debt, savings, and long-term net worth.
+      </p>
+    </div>
+
+    <!-- Category Filter Bar -->
+    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2rem;" id="category-filter-bar">
+      <button class="btn btn-sm btn-primary category-btn active" data-cat="all">All Simulators</button>
+      <button class="btn btn-sm btn-outline category-btn" data-cat="Investing & Wealth">Investing &amp; Wealth</button>
+      <button class="btn btn-sm btn-outline category-btn" data-cat="Debt Payoff">Debt Payoff</button>
+      <button class="btn btn-sm btn-outline category-btn" data-cat="Wellness & Planning">Wellness &amp; Planning</button>
+      <button class="btn btn-sm btn-outline category-btn" data-cat="Real Estate & Mortgages">Real Estate &amp; Mortgages</button>
+      <button class="btn btn-sm btn-outline category-btn" data-cat="Taxes & Income">Taxes &amp; Income</button>
+    </div>
+
+    <!-- Tools Grid Mount -->
+    <div id="tools-grid-mount" class="grid grid-cols-3" style="gap: 1.5rem;"></div>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">&copy; 2026 FinCast. 100% Free &amp; Private.</div>
+    </div>
+  </footer>
+
+  <script src="../js/config.js"></script>
+  <script src="../js/analytics.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const mount = document.getElementById('tools-grid-mount');
+      if (!mount || !window.FinCastConfig) return;
+
+      const tools = window.FinCastConfig.toolsRegistry;
+
+      function renderTools(filterCat = 'all') {
+        mount.innerHTML = '';
+        const filtered = filterCat === 'all' 
+          ? tools 
+          : tools.filter(t => t.category === filterCat);
+
+        filtered.forEach(tool => {
+          const card = document.createElement('div');
+          card.className = 'card card-hoverable';
+          card.style.display = 'flex';
+          card.style.flexDirection = 'column';
+          card.style.justifyContent = 'space-between';
+
+          card.innerHTML = `
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem;">
+                <span style="font-size: 2.25rem;">${tool.icon}</span>
+                <span class="badge badge-emerald">${tool.badge}</span>
+              </div>
+              <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--brand-secondary); font-weight: 700; margin-bottom: 0.35rem;">
+                ${tool.category}
+              </div>
+              <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">${tool.name}</h3>
+              <p style="font-size: 0.85rem; margin-bottom: 1.25rem; color: var(--text-secondary);">
+                ${tool.description}
+              </p>
+            </div>
+            <div>
+              <a href="${tool.url}" class="btn btn-primary" style="width: 100%;">
+                Open Simulator &rarr;
+              </a>
+            </div>
+          `;
+          mount.appendChild(card);
+        });
+      }
+
+      renderTools('all');
+
+      document.querySelectorAll('.category-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.category-btn').forEach(b => {
+            b.classList.remove('btn-primary', 'active');
+            b.classList.add('btn-outline');
+          });
+          btn.classList.remove('btn-outline');
+          btn.classList.add('btn-primary', 'active');
+          renderTools(btn.dataset.cat);
+        });
+      });
+    });
+  </script>
+</body>
+</html>

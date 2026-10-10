@@ -1,0 +1,16 @@
+{
+  "name": "FinCast — Financial Decision Simulator",
+  "short_name": "FinCast",
+  "description": "Don't just calculate your money. See what happens next. Free, private financial decision simulators.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#0B0F19",
+  "theme_color": "#10B981",
+  "icons": [
+    {
+      "src": "assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

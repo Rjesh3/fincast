@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Financial Health Score Assessment — 6-Pillar Wellness Check | FinCast</title>
+  <meta name="description" content="Calculate your 6-pillar Financial Health Score (0-100) instantly. Evaluate your Emergency Fund, Debt Burden, Cash Flow, Savings Rate, Retirement, and Credit Utilization.">
+  <meta name="keywords" content="financial health score, financial wellness quiz, financial wellness test, emergency fund ratio, debt to income ratio, retirement readiness score">
+  <link rel="canonical" href="https://fincast.app/pages/financial-health-score.html">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://fincast.app/pages/financial-health-score.html">
+  <meta property="og:title" content="Financial Health Score Assessment — FinCast">
+  <meta property="og:description" content="Check your 6-pillar financial wellness score and discover your Top 3 Next Steps. 100% private, free, and client-side.">
+  <meta property="og:image" content="https://fincast.app/assets/og-preview.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Financial Health Score Assessment — 6-Pillar Wellness Check | FinCast">
+  <meta name="twitter:description" content="Calculate your 6-pillar Financial Health Score (0-100) instantly. Evaluate your Emergency Fund, Debt Burden, Cash Flow, Savings Rate, Retirement, and Credit Utilization.">
+  <meta name="twitter:image" content="https://fincast.app/assets/og-preview.svg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/tools.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincast.app/" },
+          { "@type": "ListItem", "position": 2, "name": "Financial Health Score", "item": "https://fincast.app/pages/financial-health-score.html" }
+        ]
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Financial Health Score Assessment",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "All modern web browsers",
+        "offers": { "@type": "Offer", "price": "0.00", "priceCurrency": "USD" },
+        "description": "Comprehensive 6-pillar financial wellness assessment calculating a 0-100 composite health score and prioritized actionable next steps."
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="../index.html" class="brand-logo" aria-label="FinCast Home">
+        <svg viewBox="0 0 32 32" width="28" height="28" fill="none">
+          <rect width="32" height="32" rx="8" fill="#1E293B"/>
+          <path d="M7 23L13 15L18 19L25 9" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="25" cy="9" r="2.5" fill="#38BDF8"/>
+        </svg>
+        <span>Fin<span class="highlight">Cast</span></span>
+      </a>
+
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-links">
+          <li><a href="debt-freedom-simulator.html" class="nav-link">Debt Freedom</a></li>
+          <li><a href="investment-simulator.html" class="nav-link">Investment What-If</a></li>
+          <li><a href="financial-health-score.html" class="nav-link active">Health Score</a></li>
+          <li><a href="tools-directory.html" class="nav-link">All Tools</a></li>
+          <li><a href="methodology.html" class="nav-link">Methodology</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="search-trigger-btn" aria-label="Search tools">
+          <span>🔍</span>
+          <span>Search</span>
+          <kbd>Ctrl+K</kbd>
+        </button>
+        <button class="mobile-nav-toggle" aria-label="Open mobile menu" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container" style="padding-top: 2rem; padding-bottom: 4rem;">
+    <!-- Breadcrumbs -->
+    <ul class="breadcrumb" aria-label="Breadcrumb">
+      <li><a href="../index.html">Home</a></li>
+      <li class="breadcrumb-separator">/</li>
+      <li><a href="tools-directory.html">Tools</a></li>
+      <li class="breadcrumb-separator">/</li>
+      <li aria-current="page">Financial Health Score</li>
+    </ul>
+
+    <div style="max-width: 800px; margin-bottom: 2rem;">
+      <div class="badge badge-amber" style="margin-bottom: 0.75rem;">🎯 6-Pillar Wellness Check</div>
+      <h1>Financial Health Score Assessment</h1>
+      <p style="font-size: 1.1rem; margin-top: 0.5rem;">
+        Get an objective, 360-degree assessment of your financial standing across 6 key pillars: Emergency Runway, Debt Load, Cash Flow, Savings Rate, Retirement Trajectory, and Credit Utilization.
+      </p>
+    </div>
+
+    <!-- Ad Placement Hook -->
+    <div class="ad-slot-container" data-ad-slot="top-banner"></div>
+
+    <!-- Calculator Grid Layout -->
+    <div class="calculator-layout">
+      <!-- Input Column -->
+      <div class="calc-panel-input">
+        <div class="calc-section-header">
+          <h3><span>📝</span> Your Financial Profile</h3>
+          <span style="font-size: 0.75rem; color: var(--text-muted);">🔒 100% Client-Side / Private</span>
+        </div>
+
+        <!-- Demographics & Income -->
+        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; margin-bottom: 1.25rem;">
+          <div>
+            <label class="form-label" for="fh-age">Your Age</label>
+            <input type="number" id="fh-age" min="18" max="95" value="32" class="form-control" />
+          </div>
+          <div>
+            <label class="form-label" for="fh-income">Gross Annual Income ($)</label>
+            <div class="input-with-affix">
+              <span class="input-affix-prefix">$</span>
+              <input type="number" id="fh-income" min="0" step="2500" value="85000" class="form-control form-control-has-prefix" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Monthly Overhead & Liquidity -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;">
+          <div>
+            <label class="form-label" for="fh-expenses">Monthly Living Expenses</label>
+            <div class="input-with-affix">
+              <span class="input-affix-prefix">$</span>
+              <input type="number" id="fh-expenses" min="0" step="100" value="3800" class="form-control form-control-has-prefix" />
+            </div>
+          </div>
+          <div>
+            <label class="form-label" for="fh-emergency">Emergency Cash Savings</label>
+            <div class="input-with-affix">
+              <span class="input-affix-prefix">$</span>
+              <input type="number" id="fh-emergency" min="0" step="500" value="12000" class="form-control form-control-has-prefix" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Total Assets & Debt -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;">
+          <div>
+            <label class="form-label" for="fh-savings">Total Retirement / Invested</label>
+            <div class="input-with-affix">
+              <span class="input-affix-prefix">$</span>
+              <input type="number" id="fh-savings" min="0" step="1000" value="30000" class="form-control form-control-has-prefix" />
+            </div>
+          </div>
+          <div>
+            <label class="form-label" for="fh-debt">Total Non-Mortgage Debt</label>
+            <div class="input-with-affix">
+              <span class="input-affix-prefix">$</span>
+              <input type="number" id="fh-debt" min="0" step="500" value="12000" class="form-control form-control-has-prefix" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Monthly Debt & Retirement Flow -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;">
+          <div>
+            <label class="form-label" for="fh-debt-payments">Monthly Debt Payments</label>
+            <div class="input-with-affix">
+              <span class="input-affix-prefix">$</span>
+              <input type="number" id="fh-debt-payments" min="0" step="25" value="450" class="form-control form-control-has-prefix" />
+            </div>
+          </div>
+          <div>
+            <label class="form-label" for="fh-retirement">Monthly 401(k) / IRA Deposit</label>
+            <div class="input-with-affix">
+              <span class="input-affix-prefix">$</span>
+              <input type="number" id="fh-retirement" min="0" step="25" value="600" class="form-control form-control-has-prefix" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Credit Utilization -->
+        <div class="form-group">
+          <div class="form-label">
+            <span>Revolving Credit Card Utilization (%)</span>
+            <div class="input-with-affix" style="max-width: 90px;">
+              <input type="number" id="fh-credit-util" min="0" max="100" value="22" class="form-control form-control-has-suffix" style="padding: 0.35rem 1.65rem 0.35rem 0.65rem; font-size: 0.9rem;" />
+              <span class="input-affix-suffix">%</span>
+            </div>
+          </div>
+          <div class="slider-group">
+            <input type="range" id="fh-credit-util-slider" class="range-slider" min="0" max="100" step="1" value="22" aria-label="Credit utilization slider" />
+            <div class="slider-labels">
+              <span>0% (Ideal)</span>
+              <span>30% (Recommended Max)</span>
+              <span>100%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Results Column -->
+      <div class="calc-panel-results">
+        <div class="calc-section-header">
+          <h3><span>🏆</span> Assessment Results</h3>
+          <button id="btn-share-health-calc" class="btn btn-sm btn-secondary" title="Share score">
+            <span>🔗</span> Share Score
+          </button>
+        </div>
+
+        <!-- Radial Gauge Mount -->
+        <div class="health-score-dial-wrap">
+          <div id="health-gauge-mount"></div>
+          <div id="health-status-badge" class="score-status-pill status-good">Calculating...</div>
+        </div>
+
+        <!-- 6 Pillar Breakdown Grid -->
+        <h4 style="font-size: 1rem; margin-top: 1rem; margin-bottom: 0.75rem;">6-Pillar Diagnostics</h4>
+        <div id="health-pillars-mount" class="health-pillars-grid">
+          <!-- Populated dynamically by health-tool.js -->
+        </div>
+
+        <!-- Prioritized Top 3 Next Steps -->
+        <div class="next-steps-container">
+          <h4 style="font-size: 1.05rem; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
+            <span>🎯</span> Your 3 Most Important Next Steps
+          </h4>
+          <div id="next-steps-mount" class="next-steps-list">
+            <!-- Populated dynamically -->
+          </div>
+        </div>
+
+        <div style="margin-top: 1.25rem; font-size: 0.75rem; color: var(--text-muted); line-height: 1.5;">
+          *Note: This assessment is an educational benchmark based on general personal finance rules of thumb (CFPB, Federal Reserve, and standard CFP guidelines). It is not individual fiduciary financial advice.
+        </div>
+      </div>
+    </div>
+
+    <!-- Contextual Related Tools Mount -->
+    <div id="related-tools-mount"></div>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="../index.html" class="brand-logo" aria-label="FinCast Home">
+            <svg viewBox="0 0 32 32" width="24" height="24" fill="none">
+              <rect width="32" height="32" rx="8" fill="#1E293B"/>
+              <path d="M7 23L13 15L18 19L25 9" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="25" cy="9" r="2.5" fill="#38BDF8"/>
+            </svg>
+            <span>Fin<span class="highlight">Cast</span></span>
+          </a>
+          <p>Don’t just calculate it. See what happens. Interactive financial decision simulators.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Simulators</h4>
+          <ul>
+            <li><a href="debt-freedom-simulator.html">Debt Freedom Simulator</a></li>
+            <li><a href="investment-simulator.html">Investment What-If</a></li>
+            <li><a href="financial-health-score.html">Financial Health Score</a></li>
+            <li><a href="tools-directory.html">All Financial Tools</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="guide-debt-avalanche-vs-snowball.html">Avalanche vs Snowball</a></li>
+            <li><a href="guide-power-of-compound-interest.html">Compound Interest</a></li>
+            <li><a href="methodology.html">Methodology</a></li>
+            <li><a href="about.html">About FinCast</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="disclaimer.html">Disclaimer</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 FinCast. All rights reserved. Calculations execute locally in your browser.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/config.js"></script>
+  <script src="../js/analytics.js"></script>
+  <script src="../js/engine/health-score-engine.js"></script>
+  <script src="../js/components/svg-charts.js"></script>
+  <script src="../js/components/share-modal.js"></script>
+  <script src="../js/components/tool-finder.js"></script>
+  <script src="../js/components/ad-manager.js"></script>
+  <script src="../js/components/related-tools.js"></script>
+  <script src="../js/health-tool.js"></script>
+</body>
+</html>

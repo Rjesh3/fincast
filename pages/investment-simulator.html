@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Investment "What If" Simulator — Compound Interest & Growth Calculator | FinCast</title>
+  <meta name="description" content="Simulate future wealth growth with our interactive compound interest simulator. Compare Plan A vs Plan B, test annual contribution step-ups, and adjust for inflation.">
+  <meta name="keywords" content="compound interest calculator, investment simulator, savings growth calculator, future value calculator, plan a vs plan b, inflation adjusted returns">
+  <link rel="canonical" href="https://fincast.app/pages/investment-simulator.html">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://fincast.app/pages/investment-simulator.html">
+  <meta property="og:title" content="Investment What-If Simulator — FinCast">
+  <meta property="og:description" content="Simulate compounding scenarios, annual contribution increases, and test Plan A vs Plan B.">
+  <meta property="og:image" content="https://fincast.app/assets/og-preview.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Investment \"What If\" Simulator — Compound Interest & Growth Calculator | FinCast">
+  <meta name="twitter:description" content="Simulate future wealth growth with our interactive compound interest simulator. Compare Plan A vs Plan B, test annual contribution step-ups, and adjust for inflation.">
+  <meta name="twitter:image" content="https://fincast.app/assets/og-preview.svg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/tools.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincast.app/" },
+          { "@type": "ListItem", "position": 2, "name": "Investment Simulator", "item": "https://fincast.app/pages/investment-simulator.html" }
+        ]
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Investment What-If Simulator",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "All modern web browsers",
+        "offers": { "@type": "Offer", "price": "0.00", "priceCurrency": "USD" },
+        "description": "Interactive compound interest and investment simulator with Plan A vs Plan B comparison and inflation toggles."
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="../index.html" class="brand-logo" aria-label="FinCast Home">
+        <svg viewBox="0 0 32 32" width="28" height="28" fill="none">
+          <rect width="32" height="32" rx="8" fill="#1E293B"/>
+          <path d="M7 23L13 15L18 19L25 9" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="25" cy="9" r="2.5" fill="#38BDF8"/>
+        </svg>
+        <span>Fin<span class="highlight">Cast</span></span>
+      </a>
+
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-links">
+          <li><a href="debt-freedom-simulator.html" class="nav-link">Debt Freedom</a></li>
+          <li><a href="investment-simulator.html" class="nav-link active">Investment What-If</a></li>
+          <li><a href="financial-health-score.html" class="nav-link">Health Score</a></li>
+          <li><a href="tools-directory.html" class="nav-link">All Tools</a></li>
+          <li><a href="methodology.html" class="nav-link">Methodology</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="search-trigger-btn" aria-label="Search tools">
+          <span>🔍</span>
+          <span>Search</span>
+          <kbd>Ctrl+K</kbd>
+        </button>
+        <button class="mobile-nav-toggle" aria-label="Open mobile menu" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container" style="padding-top: 2rem; padding-bottom: 4rem;">
+    <!-- Breadcrumbs -->
+    <ul class="breadcrumb" aria-label="Breadcrumb">
+      <li><a href="../index.html">Home</a></li>
+      <li class="breadcrumb-separator">/</li>
+      <li><a href="tools-directory.html">Tools</a></li>
+      <li class="breadcrumb-separator">/</li>
+      <li aria-current="page">Investment What-If Simulator</li>
+    </ul>
+
+    <div style="max-width: 800px; margin-bottom: 2rem;">
+      <div class="badge badge-cyan" style="margin-bottom: 0.75rem;">📈 Compound Growth Simulator</div>
+      <h1>Investment "What If" Simulator</h1>
+      <p style="font-size: 1.1rem; margin-top: 0.5rem;">
+        See how recurring contributions compound over time. Compare scenarios side-by-side, simulate annual contribution step-ups, and calculate inflation-adjusted purchasing power.
+      </p>
+    </div>
+
+    <!-- Ad Placement Hook -->
+    <div class="ad-slot-container" data-ad-slot="top-banner"></div>
+
+    <!-- Calculator Grid Layout -->
+    <div class="calculator-layout">
+      <!-- Input Column -->
+      <div class="calc-panel-input">
+        <div class="calc-section-header">
+          <h3><span>⚙️</span> Investment Parameters</h3>
+        </div>
+
+        <!-- Initial Starting Balance -->
+        <div class="form-group">
+          <label class="form-label" for="inv-initial">Starting Balance ($)</label>
+          <div class="input-with-affix">
+            <span class="input-affix-prefix">$</span>
+            <input type="number" id="inv-initial" min="0" step="500" value="5000" class="form-control form-control-has-prefix" />
+          </div>
+        </div>
+
+        <!-- Monthly Contribution Slider -->
+        <div class="form-group">
+          <div class="form-label">
+            <span>Monthly Contribution (Plan A)</span>
+            <div class="input-with-affix" style="max-width: 120px;">
+              <span class="input-affix-prefix">$</span>
+              <input type="number" id="inv-monthly" min="0" max="10000" step="25" value="400" class="form-control form-control-has-prefix" style="padding: 0.35rem 0.5rem 0.35rem 1.65rem; font-size: 0.9rem;" />
+            </div>
+          </div>
+          <div class="slider-group">
+            <input type="range" id="inv-monthly-slider" class="range-slider" min="0" max="2500" step="25" value="400" aria-label="Monthly contribution slider" />
+            <div class="slider-labels">
+              <span>$0</span>
+              <span>$1,250</span>
+              <span>$2,500/mo</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Expected Annual Return -->
+        <div class="form-group">
+          <div class="form-label">
+            <span>Expected Annual Return Rate</span>
+            <div class="input-with-affix" style="max-width: 100px;">
+              <input type="number" id="inv-return" min="1" max="25" step="0.1" value="8.5" class="form-control form-control-has-suffix" style="padding: 0.35rem 1.65rem 0.35rem 0.65rem; font-size: 0.9rem;" />
+              <span class="input-affix-suffix">%</span>
+            </div>
+          </div>
+          <div class="slider-group">
+            <input type="range" id="inv-return-slider" class="range-slider" min="1" max="15" step="0.5" value="8.5" aria-label="Annual return rate slider" />
+            <div class="slider-labels">
+              <span>1% (Bonds)</span>
+              <span>8.5% (S&amp;P 500 Avg)</span>
+              <span>15%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Investment Horizon (Years) -->
+        <div class="form-group">
+          <div class="form-label">
+            <span>Time Horizon (Years)</span>
+            <div class="input-with-affix" style="max-width: 100px;">
+              <input type="number" id="inv-years" min="1" max="50" step="1" value="20" class="form-control" style="padding: 0.35rem 0.65rem; font-size: 0.9rem;" />
+            </div>
+          </div>
+          <div class="slider-group">
+            <input type="range" id="inv-years-slider" class="range-slider" min="1" max="40" step="1" value="20" aria-label="Investment horizon slider" />
+            <div class="slider-labels">
+              <span>1 Yr</span>
+              <span>20 Yrs</span>
+              <span>40 Yrs</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Advanced Options Grid -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.25rem;">
+          <div class="form-group" style="margin-bottom: 0;">
+            <label class="form-label" for="inv-stepup" style="font-size: 0.8rem;">
+              <span>Annual Step-Up (%)</span>
+              <span class="label-tip">Raise savings/yr</span>
+            </label>
+            <div class="input-with-affix">
+              <input type="number" id="inv-stepup" min="0" max="25" step="1" value="3" class="form-control form-control-has-suffix" />
+              <span class="input-affix-suffix">%</span>
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 0;">
+            <label class="form-label" for="inv-compound-freq" style="font-size: 0.8rem;">Compounding</label>
+            <select id="inv-compound-freq" class="form-control">
+              <option value="12" selected>Monthly (Standard)</option>
+              <option value="1">Annually</option>
+              <option value="4">Quarterly</option>
+              <option value="365">Daily</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Inflation Toggle -->
+        <div style="margin-top: 1.25rem; display: flex; align-items: center; justify-content: space-between; background: var(--bg-surface-elevated); padding: 0.75rem 1rem; border-radius: var(--radius-md);">
+          <div>
+            <div style="font-size: 0.85rem; font-weight: 600; color: var(--text-primary);">Adjust for Inflation (2.8%/yr)</div>
+            <div style="font-size: 0.75rem; color: var(--text-muted);">Calculates future purchasing power in today's dollars</div>
+          </div>
+          <input type="checkbox" id="inv-inflation-toggle" style="width: 18px; height: 18px; cursor: pointer; accent-color: var(--brand-primary);" />
+        </div>
+
+        <!-- "What If" Plan B Comparison Input -->
+        <div class="what-if-box">
+          <div class="what-if-badge">✦ "What If" Comparison Scenario (Plan B)</div>
+          <div class="form-group" style="margin-bottom: 0;">
+            <label class="form-label" for="inv-plan-b-monthly" style="font-size: 0.85rem;">
+              <span>What if I increase monthly investing to:</span>
+            </label>
+            <div class="input-with-affix">
+              <span class="input-affix-prefix">$</span>
+              <input type="number" id="inv-plan-b-monthly" min="0" step="50" value="650" class="form-control form-control-has-prefix" style="font-weight: 700; color: var(--brand-secondary);" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Results Column -->
+      <div class="calc-panel-results">
+        <div class="calc-section-header">
+          <h3><span>📊</span> Growth Projections</h3>
+          <button id="btn-share-inv-calc" class="btn btn-sm btn-secondary" title="Share result">
+            <span>🔗</span> Share Result
+          </button>
+        </div>
+
+        <!-- Highlight Metric Card -->
+        <div class="delta-highlight-card" style="background: linear-gradient(135deg, #0C4A6E 0%, #064E3B 100%);">
+          <div class="delta-title" style="color: #7DD3FC;">
+            <span>✦ Estimated Future Portfolio Value</span>
+            <span id="inv-inflation-label" class="badge badge-cyan" style="display: none; font-size: 0.65rem; margin-left: 0.5rem;">Inflation Adjusted</span>
+          </div>
+          <div class="delta-metrics-grid">
+            <div class="delta-metric-item">
+              <p>Projected Future Value</p>
+              <h4 id="inv-total-future-val" style="color: #FFFFFF;">$0</h4>
+            </div>
+            <div class="delta-metric-item">
+              <p>Compound Growth Earned</p>
+              <h4 id="inv-total-growth" style="color: #6EE7B7;">$0</h4>
+            </div>
+          </div>
+          <div style="margin-top: 0.75rem; font-size: 0.8rem; color: #BAE6FD;">
+            Total Out-of-Pocket Deposits: <strong id="inv-total-deposits">$0</strong>
+          </div>
+        </div>
+
+        <!-- Plan A vs Plan B Comparison Grid -->
+        <div class="comparison-table-wrap">
+          <div class="plan-column">
+            <div class="plan-tag">Plan A Baseline</div>
+            <div class="plan-value-big" id="plan-a-future">$0</div>
+            <div class="plan-row">
+              <span>Deposited:</span>
+              <span id="plan-a-contrib">$0</span>
+            </div>
+          </div>
+
+          <div class="plan-column plan-highlight">
+            <div class="plan-tag" style="color: var(--brand-secondary);">Plan B Accelerated</div>
+            <div class="plan-value-big" id="plan-b-future" style="color: #38BDF8;">$0</div>
+            <div class="plan-row">
+              <span>Deposited:</span>
+              <span id="plan-b-contrib">$0</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Wealth Multiplier Banner -->
+        <div style="background: var(--bg-surface-elevated); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 0.85rem 1rem; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: space-between;">
+          <div>
+            <div style="font-size: 0.85rem; font-weight: 700; color: var(--text-primary);">Extra Contribution vs Extra Wealth</div>
+            <div style="font-size: 0.75rem; color: var(--text-muted);">
+              An extra <span id="delta-invest-contrib" style="color: var(--text-primary); font-weight:600;">$0</span> invested generates <span id="delta-invest-future" style="color: #34D399; font-weight: 700;">+$0</span> in future returns.
+            </div>
+          </div>
+          <div class="badge badge-emerald" id="wealth-multiplier-val" style="font-size: 0.95rem; font-family: var(--font-mono);">
+            0.0x
+          </div>
+        </div>
+
+        <!-- Stacked Growth Bar Chart -->
+        <div class="chart-container">
+          <div class="chart-header">
+            <span class="chart-title">Portfolio Accumulation Over Time</span>
+            <div class="chart-legend">
+              <div class="legend-item"><span class="legend-dot" style="background:#3B82F6;"></span> Principal</div>
+              <div class="legend-item"><span class="legend-dot" style="background:#10B981;"></span> Compounded Interest</div>
+            </div>
+          </div>
+          <div id="investment-chart-mount" class="chart-svg-wrap"></div>
+        </div>
+
+        <!-- Year-by-Year Table Breakdown -->
+        <div class="data-table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Year</th>
+                <th>Total Balance</th>
+                <th>Total Deposits</th>
+                <th>Total Growth</th>
+              </tr>
+            </thead>
+            <tbody id="investment-table-body">
+              <!-- Rendered dynamically -->
+            </tbody>
+          </table>
+        </div>
+
+        <div style="margin-top: 1rem; font-size: 0.75rem; color: var(--text-muted); line-height: 1.5;">
+          *Disclaimer: Investment projections are mathematical models based on constant annualized rates of return. Real market returns fluctuate significantly year to year. Past historical returns (e.g. S&amp;P 500 ~10% nominal) do not guarantee future performance.
+        </div>
+      </div>
+    </div>
+
+    <!-- Educational Guide Section -->
+    <section style="margin-top: 4rem; border-top: 1px solid var(--border-subtle); padding-top: 3rem;">
+      <h2>Understanding the Mechanics of Compound Interest</h2>
+      <div class="grid grid-cols-2" style="margin-top: 1.5rem; gap: 2rem;">
+        <div>
+          <h3>Why Starting 5 Years Earlier Changes Everything</h3>
+          <p style="margin-top: 0.5rem; font-size: 0.95rem;">
+            Compound interest is exponential, not linear. In the first decade, your total balance is primarily fueled by your out-of-pocket deposits. In years 15–30, the annual returns generated by your investment gains far exceed your annual contributions.
+          </p>
+        </div>
+        <div>
+          <h3>The Power of the 3% Annual Contribution Step-Up</h3>
+          <p style="margin-top: 0.5rem; font-size: 0.95rem;">
+            By committing to increase your monthly contribution by just 3% every year (roughly matching typical annual wage increases or cost-of-living adjustments), you dramatically accelerate your final net worth without feeling a sudden pinch in your lifestyle.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contextual Related Tools Mount -->
+    <div id="related-tools-mount"></div>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="../index.html" class="brand-logo" aria-label="FinCast Home">
+            <svg viewBox="0 0 32 32" width="24" height="24" fill="none">
+              <rect width="32" height="32" rx="8" fill="#1E293B"/>
+              <path d="M7 23L13 15L18 19L25 9" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="25" cy="9" r="2.5" fill="#38BDF8"/>
+            </svg>
+            <span>Fin<span class="highlight">Cast</span></span>
+          </a>
+          <p>Don’t just calculate it. See what happens. Interactive financial decision simulators.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Simulators</h4>
+          <ul>
+            <li><a href="debt-freedom-simulator.html">Debt Freedom Simulator</a></li>
+            <li><a href="investment-simulator.html">Investment What-If</a></li>
+            <li><a href="financial-health-score.html">Financial Health Score</a></li>
+            <li><a href="tools-directory.html">All Financial Tools</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="guide-debt-avalanche-vs-snowball.html">Avalanche vs Snowball</a></li>
+            <li><a href="guide-power-of-compound-interest.html">Compound Interest</a></li>
+            <li><a href="methodology.html">Methodology</a></li>
+            <li><a href="about.html">About FinCast</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="disclaimer.html">Disclaimer</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 FinCast. All rights reserved. Mathematical projections for educational purposes.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/config.js"></script>
+  <script src="../js/analytics.js"></script>
+  <script src="../js/engine/investment-engine.js"></script>
+  <script src="../js/components/svg-charts.js"></script>
+  <script src="../js/components/share-modal.js"></script>
+  <script src="../js/components/tool-finder.js"></script>
+  <script src="../js/components/ad-manager.js"></script>
+  <script src="../js/components/related-tools.js"></script>
+  <script src="../js/investment-tool.js"></script>
+</body>
+</html>

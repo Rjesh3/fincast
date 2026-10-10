@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FinCast — See What Your Money Could Look Like Tomorrow | Financial Decision Simulators</title>
+  <meta name="description" content="Free financial calculators and interactive money simulations. Simulate debt payoff strategies (Avalanche vs Snowball), compound interest growth, and calculate your Financial Health Score.">
+  <meta name="keywords" content="debt payoff calculator, investment simulator, financial health score, compound interest calculator, debt avalanche vs snowball, personal finance simulator">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://fincast.app/">
+
+  <!-- Open Graph / Social Cards -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://fincast.app/">
+  <meta property="og:title" content="FinCast — See What Your Money Could Look Like Tomorrow">
+  <meta property="og:description" content="Don't just calculate your money. Simulate what happens when you make smarter financial decisions. Free, private, client-side tools.">
+  <meta property="og:image" content="https://fincast.app/assets/og-preview.svg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="FinCast — Financial Decision Simulators">
+  <meta name="twitter:description" content="Simulate debt payoff, compound growth, and calculate your 6-pillar Financial Health Score.">
+  <meta name="twitter:image" content="https://fincast.app/assets/og-preview.svg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/tools.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <!-- Structured Data: Organization & SoftwareApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://fincast.app/#organization",
+        "name": "FinCast",
+        "url": "https://fincast.app",
+        "logo": "https://fincast.app/assets/logo.svg",
+        "description": "Interactive financial decision simulations and educational calculators for US consumers."
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "FinCast Financial Decision Platform",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "All modern web browsers",
+        "offers": {
+          "@type": "Offer",
+          "price": "0.00",
+          "priceCurrency": "USD"
+        },
+        "description": "Free, private interactive financial simulators including Debt Freedom, Investment What-If, and Financial Health Score."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How is FinCast different from standard financial calculators?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Traditional calculators provide a single static number. FinCast functions as a decision simulator that demonstrates what happens when you change variables—such as adding $100 extra per month, comparing Plan A vs Plan B, or choosing Debt Avalanche vs Snowball."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is my personal financial information stored on your servers?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. All calculations on FinCast run 100% locally in your web browser. No bank logins, accounts, or personal data transmissions are required."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the difference between the Debt Avalanche and Debt Snowball methods?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The Debt Avalanche prioritizes paying off debts with the highest interest rates (APR) first, saving the maximum amount in total interest. The Debt Snowball prioritizes paying off the smallest balances first to build psychological momentum."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header Navigation -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo" aria-label="FinCast Home">
+        <svg viewBox="0 0 32 32" width="28" height="28" fill="none">
+          <rect width="32" height="32" rx="8" fill="#1E293B"/>
+          <path d="M7 23L13 15L18 19L25 9" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="25" cy="9" r="2.5" fill="#38BDF8"/>
+        </svg>
+        <span>Fin<span class="highlight">Cast</span></span>
+      </a>
+
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-links">
+          <li><a href="pages/debt-freedom-simulator.html" class="nav-link">Debt Freedom</a></li>
+          <li><a href="pages/investment-simulator.html" class="nav-link">Investment What-If</a></li>
+          <li><a href="pages/fire-simulator.html" class="nav-link">FIRE Simulator</a></li>
+          <li><a href="pages/emergency-fund-simulator.html" class="nav-link">Emergency Fund</a></li>
+          <li><a href="pages/financial-health-score.html" class="nav-link">Health Score</a></li>
+          <li><a href="pages/tools-directory.html" class="nav-link">All Tools</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle theme">🌙</button>
+        <button class="search-trigger-btn" aria-label="Search tools">
+          <span>🔍</span>
+          <kbd>Ctrl+K</kbd>
+        </button>
+        <button class="mobile-nav-toggle" aria-label="Open mobile menu" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="section section-hero">
+    <div class="hero-glow"></div>
+    <div class="container">
+      <div class="grid grid-cols-2" style="align-items: center; gap: 3rem;">
+        <div>
+          <div class="badge badge-emerald" style="margin-bottom: 1.25rem;">
+            <span>✦</span> Interactive Financial Decision Simulator
+          </div>
+          <h1>See What Your Money Could Look Like Tomorrow.</h1>
+          <p style="font-size: 1.15rem; margin-top: 1.25rem; margin-bottom: 2rem;">
+            Don’t settle for generic, static calculators that only spit out a monthly payment. Simulate your real-life choices, test “What If?” scenarios, and see the exact compound difference.
+          </p>
+
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="pages/debt-freedom-simulator.html" class="btn btn-primary btn-lg">
+              <span>⚡</span> Launch Debt Simulator
+            </a>
+            <a href="pages/financial-health-score.html" class="btn btn-secondary btn-lg">
+              <span>🎯</span> Test Health Score
+            </a>
+          </div>
+
+          <div style="display: flex; gap: 1.5rem; margin-top: 2rem; font-size: 0.85rem; color: var(--text-muted);">
+            <div style="display: flex; align-items: center; gap: 0.4rem;">
+              <span style="color: var(--brand-primary);">✓</span> 100% Free &amp; Private
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.4rem;">
+              <span style="color: var(--brand-primary);">✓</span> No Sign-Up Wall
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.4rem;">
+              <span style="color: var(--brand-primary);">✓</span> Client-Side Calculations
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Hero Demo Card -->
+        <div>
+          <div class="card" style="border-color: rgba(16, 185, 129, 0.4); box-shadow: var(--shadow-glow);">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+              <span class="badge badge-cyan">⚡ Live Interactive Demo</span>
+              <span style="font-size: 0.8rem; color: var(--text-muted);">$8,000 Balance @ 22.9% APR</span>
+            </div>
+
+            <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">What happens if I pay extra each month?</h3>
+            <p style="font-size: 0.85rem; margin-bottom: 1.25rem;">Drag the slider below to see instant delta savings in real time:</p>
+
+            <div class="slider-group" style="margin-bottom: 1.5rem;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                <span class="form-label" style="margin: 0;">Extra Monthly Payment:</span>
+                <span id="hero-slider-val" style="font-weight: 800; color: var(--brand-primary); font-family: var(--font-mono); font-size: 1.2rem;">+$150/mo</span>
+              </div>
+              <input type="range" id="hero-extra-slider" class="range-slider" min="0" max="600" step="25" value="150" aria-label="Extra payment simulation slider">
+              <div class="slider-labels">
+                <span>+$0/mo</span>
+                <span>+$300/mo</span>
+                <span>+$600/mo</span>
+              </div>
+            </div>
+
+            <div class="delta-highlight-card" style="margin-bottom: 1rem; padding: 1.25rem;">
+              <div class="delta-metrics-grid">
+                <div class="delta-metric-item">
+                  <p>Interest Saved</p>
+                  <h4 id="hero-interest-saved">$2,840</h4>
+                </div>
+                <div class="delta-metric-item">
+                  <p>Freedom Accelerated</p>
+                  <h4 id="hero-months-saved">26 Months Faster</h4>
+                </div>
+              </div>
+            </div>
+
+            <p id="hero-timeline-text" style="font-size: 0.85rem; color: var(--text-secondary); text-align: center; margin-bottom: 1.25rem;">
+              You become completely debt-free months ahead of schedule.
+            </p>
+
+            <a href="pages/debt-freedom-simulator.html" class="btn btn-outline" style="width: 100%;">
+              Customize With Your Real Debts &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Architectural Ad Slot (Disabled by default via config) -->
+  <div class="container ad-slot-container" data-ad-slot="top-banner"></div>
+
+  <!-- Signature Value Proposition / Competitor Differentiation -->
+  <section class="section" style="background: var(--bg-surface); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="badge badge-emerald" style="margin-bottom: 0.75rem;">The Decision Simulator Difference</span>
+        <h2>Don't Just Calculate It. See What Happens.</h2>
+        <p>Most online calculators give you a cold number with zero context. FinCast helps you simulate the ripple effect of every single dollar.</p>
+      </div>
+
+      <div class="grid grid-cols-2" style="gap: 2rem;">
+        <div class="card" style="border-left: 4px solid var(--brand-danger);">
+          <div style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--brand-danger); margin-bottom: 0.5rem;">❌ The Old Generic Calculator Way</div>
+          <h3 style="font-size: 1.2rem; margin-bottom: 0.75rem;">"Your monthly payment is $450."</h3>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.65rem; font-size: 0.9rem; color: var(--text-secondary);">
+            <li>• No explanation of how much pure interest you waste</li>
+            <li>• No interactive scenario comparisons</li>
+            <li>• Cluttered with intrusive loan lead forms</li>
+            <li>• Slow page loads filled with tracking pixels</li>
+          </ul>
+        </div>
+
+        <div class="card" style="border-left: 4px solid var(--brand-primary); background: rgba(16, 185, 129, 0.03);">
+          <div style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--brand-primary); margin-bottom: 0.5rem;">✅ The FinCast Simulator Way</div>
+          <h3 style="font-size: 1.2rem; margin-bottom: 0.75rem;">"Here's what happens if you adjust one decision."</h3>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.65rem; font-size: 0.9rem; color: var(--text-secondary);">
+            <li>• Live delta badges show exact months and dollars saved</li>
+            <li>• Compare Debt Avalanche vs Snowball side-by-side</li>
+            <li>• Compound wealth with step-up annual contributions</li>
+            <li>• 100% private, instant client-side calculations</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Tools Showcase Grid -->
+  <section class="section">
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="badge badge-cyan" style="margin-bottom: 0.75rem;">Featured Simulators</span>
+        <h2>High-Impact Financial Engines</h2>
+        <p>Built for clarity, speed, and actionable insights. Jump into our signature tools:</p>
+      </div>
+
+      <div class="grid grid-cols-3" style="gap: 1.5rem;">
+        <!-- Tool 1 -->
+        <div class="card card-hoverable" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+              <span style="font-size: 2.25rem;">⚡</span>
+              <span class="badge badge-emerald">Popular</span>
+            </div>
+            <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Debt Freedom Simulator</h3>
+            <p style="font-size: 0.9rem; margin-bottom: 1.25rem;">
+              Test Avalanche vs Snowball payoff strategies, extra monthly cash allocations, and dynamic amortization graphs.
+            </p>
+          </div>
+          <div>
+            <a href="pages/debt-freedom-simulator.html" class="btn btn-primary" style="width: 100%;">
+              Open Debt Simulator &rarr;
+            </a>
+          </div>
+        </div>
+
+        <!-- Tool 2 -->
+        <div class="card card-hoverable" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+              <span style="font-size: 2.25rem;">🔥</span>
+              <span class="badge badge-amber">High Impact</span>
+            </div>
+            <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">FIRE Early Retirement</h3>
+            <p style="font-size: 0.9rem; margin-bottom: 1.25rem;">
+              Calculate your FIRE Target, Lean/Fat FIRE thresholds, Coast FIRE milestone, and early retirement age.
+            </p>
+          </div>
+          <div>
+            <a href="pages/fire-simulator.html" class="btn btn-primary" style="width: 100%;">
+              Launch FIRE Tool &rarr;
+            </a>
+          </div>
+        </div>
+
+        <!-- Tool 3 -->
+        <div class="card card-hoverable" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+              <span style="font-size: 2.25rem;">📈</span>
+              <span class="badge badge-cyan">Essential</span>
+            </div>
+            <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Investment "What If"</h3>
+            <p style="font-size: 0.9rem; margin-bottom: 1.25rem;">
+              Simulate compound growth, annual contribution step-ups, inflation discounts, and Plan A vs B comparisons.
+            </p>
+          </div>
+          <div>
+            <a href="pages/investment-simulator.html" class="btn btn-primary" style="width: 100%;">
+              Open Investment Tool &rarr;
+            </a>
+          </div>
+        </div>
+
+        <!-- Tool 4 -->
+        <div class="card card-hoverable" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+              <span style="font-size: 2.25rem;">🛡️</span>
+              <span class="badge badge-cyan">Security</span>
+            </div>
+            <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Emergency Fund Runway</h3>
+            <p style="font-size: 0.9rem; margin-bottom: 1.25rem;">
+              Assess essential expense buffer targets (3-9 months), risk profile scoring, and HYSA interest growth.
+            </p>
+          </div>
+          <div>
+            <a href="pages/emergency-fund-simulator.html" class="btn btn-primary" style="width: 100%;">
+              Calculate Buffer &rarr;
+            </a>
+          </div>
+        </div>
+
+        <!-- Tool 5 -->
+        <div class="card card-hoverable" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+              <span style="font-size: 2.25rem;">🏙️</span>
+              <span class="badge badge-emerald">Real Estate</span>
+            </div>
+            <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Rent vs. Buy Simulator</h3>
+            <p style="font-size: 0.9rem; margin-bottom: 1.25rem;">
+              Compare home appreciation & equity build-up against renting and investing down payment in stock index funds.
+            </p>
+          </div>
+          <div>
+            <a href="pages/rent-vs-buy-simulator.html" class="btn btn-primary" style="width: 100%;">
+              Compare Decisions &rarr;
+            </a>
+          </div>
+        </div>
+
+        <!-- Tool 6 -->
+        <div class="card card-hoverable" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+              <span style="font-size: 2.25rem;">🎯</span>
+              <span class="badge badge-amber">Holistic</span>
+            </div>
+            <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Financial Health Score</h3>
+            <p style="font-size: 0.9rem; margin-bottom: 1.25rem;">
+              Assess your 6 financial pillars (Emergency, Debt, Cash Flow, Savings, Retirement, Credit) for a 0-100 score.
+            </p>
+          </div>
+          <div>
+            <a href="pages/financial-health-score.html" class="btn btn-primary" style="width: 100%;">
+              Test Health Score &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Real Financial Scenarios & Educational Guides -->
+  <section class="section" style="background: var(--bg-surface); border-top: 1px solid var(--border-subtle);">
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="badge badge-emerald" style="margin-bottom: 0.75rem;">Educational Deep Dives</span>
+        <h2>Master Your Financial Mechanics</h2>
+        <p>Grounded in mathematical rigor and transparent assumptions. Explore our research-backed guides:</p>
+      </div>
+
+      <div class="grid grid-cols-2">
+        <div class="card card-hoverable">
+          <span class="badge badge-cyan" style="margin-bottom: 0.75rem;">Strategy Guide</span>
+          <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">
+            <a href="pages/guide-debt-avalanche-vs-snowball.html" style="color: var(--text-primary);">
+              Debt Avalanche vs. Debt Snowball: Which Strategy Wins?
+            </a>
+          </h3>
+          <p style="font-size: 0.9rem; margin-bottom: 1rem;">
+            Discover the mathematical efficiency of the Avalanche method versus the psychological momentum of the Snowball method with real US consumer case studies.
+          </p>
+          <a href="pages/guide-debt-avalanche-vs-snowball.html" class="link-arrow" style="font-size: 0.85rem; font-weight: 600;">
+            Read Strategy Breakdown &rarr;
+          </a>
+        </div>
+
+        <div class="card card-hoverable">
+          <span class="badge badge-emerald" style="margin-bottom: 0.75rem;">Wealth Building</span>
+          <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">
+            <a href="pages/guide-power-of-compound-interest.html" style="color: var(--text-primary);">
+              The Physics of Compound Interest: Why Time Beats Timing
+            </a>
+          </h3>
+          <p style="font-size: 0.9rem; margin-bottom: 1rem;">
+            Understand the mathematics of exponential compounding, the impact of annual contribution step-ups, and how inflation alters real purchasing power over 20-30 years.
+          </p>
+          <a href="pages/guide-power-of-compound-interest.html" class="link-arrow" style="font-size: 0.85rem; font-weight: 600;">
+            Read Compounding Analysis &rarr;
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive FAQ Section (Schema Enhanced) -->
+  <section class="section">
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="badge badge-cyan" style="margin-bottom: 0.75rem;">Got Questions?</span>
+        <h2>Frequently Asked Questions</h2>
+        <p>Everything you need to know about our calculations, privacy, and assumptions.</p>
+      </div>
+
+      <div class="faq-accordion">
+        <div class="faq-item active">
+          <button class="faq-question">
+            <span>How does FinCast ensure mathematical accuracy?</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-answer">
+            Our engines use exact daily and monthly compounding amortization formulas matching institutional banking and SEC guidelines. All calculations handle rounding, varying compounding intervals, and safeguard against edge cases like infinite payback terms when minimum payments don't cover accrued interest.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Is my financial data uploaded or tracked?</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-answer">
+            Never. All calculations execute locally inside your browser using Vanilla JavaScript. We do not require accounts, we do not connect to bank APIs, and we do not transmit your debt or income numbers across any network.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Is FinCast completely free to use?</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-answer">
+            Yes, 100% of our simulators, visual charts, and health score assessments are free. In the future, we may display tasteful, non-intrusive advertisements or recommend vetted high-yield savings products to support the platform.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Does this constitute professional financial advice?</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-answer">
+            No. FinCast provides educational simulation models and mathematical calculations. It is not licensed financial, tax, or investment advice. For personalized plans, consult a certified financial planner (CFP) or CPA.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final Call to Action -->
+  <section class="section" style="background: linear-gradient(180deg, var(--bg-surface) 0%, #061A14 100%); text-align: center; border-top: 1px solid var(--border-subtle);">
+    <div class="container" style="max-width: 700px;">
+      <h2>Take Control of Your Financial Trajectory Today.</h2>
+      <p style="margin: 1.25rem 0 2rem 0; font-size: 1.1rem;">
+        Start with our Debt Freedom Simulator or calculate your holistic Financial Health Score in less than 2 minutes.
+      </p>
+      <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+        <a href="pages/debt-freedom-simulator.html" class="btn btn-primary btn-lg">Launch Debt Simulator</a>
+        <a href="pages/tools-directory.html" class="btn btn-secondary btn-lg">Browse All Simulators</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Global Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo" aria-label="FinCast Home">
+            <svg viewBox="0 0 32 32" width="24" height="24" fill="none">
+              <rect width="32" height="32" rx="8" fill="#1E293B"/>
+              <path d="M7 23L13 15L18 19L25 9" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="25" cy="9" r="2.5" fill="#38BDF8"/>
+            </svg>
+            <span>Fin<span class="highlight">Cast</span></span>
+          </a>
+          <p>Don’t just calculate it. See what happens. Free, private, interactive financial decision simulators for US consumers.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Simulators</h4>
+          <ul>
+            <li><a href="pages/debt-freedom-simulator.html">Debt Freedom Simulator</a></li>
+            <li><a href="pages/investment-simulator.html">Investment What-If</a></li>
+            <li><a href="pages/financial-health-score.html">Financial Health Score</a></li>
+            <li><a href="pages/tools-directory.html">All Financial Tools</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="pages/guide-debt-avalanche-vs-snowball.html">Avalanche vs Snowball</a></li>
+            <li><a href="pages/guide-power-of-compound-interest.html">Compound Interest Guide</a></li>
+            <li><a href="pages/methodology.html">Calculation Methodology</a></li>
+            <li><a href="pages/about.html">About FinCast</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Legal &amp; Trust</h4>
+          <ul>
+            <li><a href="pages/privacy.html">Privacy Policy</a></li>
+            <li><a href="pages/terms.html">Terms of Service</a></li>
+            <li><a href="pages/disclaimer.html">Financial Disclaimer</a></li>
+            <li><a href="pages/contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Disclaimers Required for Financial Compliance -->
+      <div class="footer-disclaimer-box">
+        <strong>Important Educational Disclaimer:</strong> FinCast provides mathematical calculations, scenario projections, and educational tools. It does not provide personalized investment, tax, legal, or financial advice. All projections are mathematical estimates and do not guarantee future performance. Federal data sources referenced include the IRS, SEC, Federal Reserve, and CFPB.
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 FinCast. All rights reserved. Built with precision for privacy.</div>
+        <div style="display: flex; gap: 1rem;">
+          <a href="pages/privacy.html">Privacy</a>
+          <span>•</span>
+          <a href="pages/terms.html">Terms</a>
+          <span>•</span>
+          <a href="pages/disclaimer.html">Disclaimer</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/config.js"></script>
+  <script src="js/analytics.js"></script>
+  <script src="js/engine/debt-engine.js"></script>
+  <script src="js/engine/investment-engine.js"></script>
+  <script src="js/engine/health-score-engine.js"></script>
+  <script src="js/components/svg-charts.js"></script>
+  <script src="js/components/share-modal.js"></script>
+  <script src="js/components/tool-finder.js"></script>
+  <script src="js/components/ad-manager.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

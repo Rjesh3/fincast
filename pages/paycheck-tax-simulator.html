@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paycheck & 2026 Tax Simulator — Take-Home Pay Calculator | FinCast</title>
+  <meta name="description" content="Calculate your exact take-home pay after 2026 federal income tax, FICA, state taxes, and pre-tax 401(k) / HSA contributions.">
+  <meta name="keywords" content="paycheck calculator, take home pay calculator, 2026 tax brackets, federal tax withholding, salary to hourly, fica tax">
+  <link rel="canonical" href="https://fincast.app/pages/paycheck-tax-simulator.html">
+
+  <!-- Open Graph / Social Cards -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://fincast.app/pages/paycheck-tax-simulator.html">
+  <meta property="og:title" content="Paycheck & 2026 Tax Simulator — Take-Home Pay Calculator | FinCast">
+  <meta property="og:description" content="Calculate your exact take-home pay after 2026 federal income tax, FICA, state taxes, and pre-tax 401(k) / HSA contributions.">
+  <meta property="og:image" content="https://fincast.app/assets/og-preview.svg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Paycheck & 2026 Tax Simulator — Take-Home Pay Calculator | FinCast">
+  <meta name="twitter:description" content="Calculate your exact take-home pay after 2026 federal income tax, FICA, state taxes, and pre-tax 401(k) / HSA contributions.">
+  <meta name="twitter:image" content="https://fincast.app/assets/og-preview.svg">
+  <meta property="og:site_name" content="FinCast">
+
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/tools.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Paycheck & 2026 Tax Simulator — Take-Home Pay Calculator | FinCast",
+    "description": "Calculate your exact take-home pay after 2026 federal income tax, FICA, state taxes, and pre-tax 401(k) / HSA contributions.",
+    "url": "https://fincast.app/pages/paycheck-tax-simulator.html",
+    "publisher": {
+      "@type": "Organization",
+      "name": "FinCast",
+      "logo": "https://fincast.app/assets/logo.svg"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="../index.html" class="brand-logo" aria-label="FinCast Home">
+        <svg viewBox="0 0 32 32" width="28" height="28" fill="none">
+          <rect width="32" height="32" rx="8" fill="#1E293B"/>
+          <path d="M7 23L13 15L18 19L25 9" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="25" cy="9" r="2.5" fill="#38BDF8"/>
+        </svg>
+        <span>Fin<span class="highlight">Cast</span></span>
+      </a>
+
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-links">
+          <li><a href="debt-freedom-simulator.html" class="nav-link">Debt Freedom</a></li>
+          <li><a href="investment-simulator.html" class="nav-link">Investment What-If</a></li>
+          <li><a href="mortgage-simulator.html" class="nav-link">Mortgage</a></li>
+          <li><a href="paycheck-tax-simulator.html" class="nav-link active">Paycheck &amp; Tax</a></li>
+          <li><a href="tools-directory.html" class="nav-link">All Tools</a></li>
+          <li><a href="trust-center.html" class="nav-link">Trust Center</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="search-trigger-btn" aria-label="Search tools">
+          <span>🔍</span>
+          <span>Search</span>
+          <kbd>Ctrl+K</kbd>
+        </button>
+        <button class="mobile-nav-toggle" aria-label="Open mobile menu" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top: 2rem; padding-bottom: 4rem;">
+    <ul class="breadcrumb">
+      <li><a href="../index.html">Home</a></li>
+      <li class="breadcrumb-separator">/</li>
+      <li><a href="tools-directory.html">Tools</a></li>
+      <li class="breadcrumb-separator">/</li>
+      <li aria-current="page">Paycheck &amp; Tax Simulator</li>
+    </ul>
+
+    <div style="max-width: 800px; margin-bottom: 2rem;">
+      <div class="badge badge-emerald" style="margin-bottom: 0.75rem;">💵 Income &amp; 2026 Tax Engine</div>
+      <h1>Paycheck &amp; Take-Home Pay Simulator</h1>
+      <p style="font-size: 1.1rem; margin-top: 0.5rem;">
+        Simulate your net take-home paycheck under current 2026 US federal income tax brackets, FICA (Social Security &amp; Medicare), standard deductions, and pre-tax 401(k)/HSA contributions.
+      </p>
+    </div>
+
+    <!-- Ad Slot -->
+    <div class="ad-slot-container" data-ad-slot="top-banner"></div>
+
+    <div class="calculator-layout">
+      <!-- Input Panel -->
+      <div class="calc-panel-input">
+        <div class="calc-section-header">
+          <h3><span>📝</span> Income &amp; Deductions</h3>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="tax-gross">Gross Annual Salary ($)</label>
+          <div class="input-with-affix">
+            <span class="input-affix-prefix">$</span>
+            <input type="number" id="tax-gross" min="10000" step="2500" value="85000" class="form-control form-control-has-prefix" />
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;">
+          <div class="form-group" style="margin-bottom: 0;">
+            <label class="form-label" for="tax-status">Filing Status</label>
+            <select id="tax-status" class="form-control">
+              <option value="single" selected>Single</option>
+              <option value="married">Married Filing Jointly</option>
+            </select>
+          </div>
+          <div class="form-group" style="margin-bottom: 0;">
+            <label class="form-label" for="tax-state">State Tax Rate (%)</label>
+            <div class="input-with-affix">
+              <input type="number" id="tax-state" min="0" max="15" step="0.5" value="4.5" class="form-control form-control-has-suffix" />
+              <span class="input-affix-suffix">%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pre-Tax Deductions -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;">
+          <div>
+            <label class="form-label" for="tax-401k">
+              <span>Annual 401(k) Pre-Tax</span>
+              <span class="label-tip">Max: $23,500</span>
+            </label>
+            <div class="input-with-affix">
+              <span class="input-affix-prefix">$</span>
+              <input type="number" id="tax-401k" min="0" max="23500" step="500" value="7000" class="form-control form-control-has-prefix" />
+            </div>
+          </div>
+          <div>
+            <label class="form-label" for="tax-hsa">
+              <span>Annual HSA / FSA</span>
+              <span class="label-tip">Max: $8,300</span>
+            </label>
+            <div class="input-with-affix">
+              <span class="input-affix-prefix">$</span>
+              <input type="number" id="tax-hsa" min="0" max="8300" step="250" value="1500" class="form-control form-control-has-prefix" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Results Panel -->
+      <div class="calc-panel-results">
+        <div class="calc-section-header">
+          <h3><span>📊</span> Take-Home Pay Breakdown</h3>
+        </div>
+
+        <div class="delta-highlight-card" style="background: linear-gradient(135deg, #064E3B 0%, #1E3A8A 100%);">
+          <div class="delta-title" style="color: #6EE7B7;">✦ Net Monthly Take-Home Pay</div>
+          <div class="delta-metrics-grid">
+            <div class="delta-metric-item">
+              <p>Monthly Take-Home</p>
+              <h4 id="tax-monthly-net">$0</h4>
+            </div>
+            <div class="delta-metric-item">
+              <p>Bi-Weekly Paycheck</p>
+              <h4 id="tax-biweekly-net">$0</h4>
+            </div>
+          </div>
+          <div style="margin-top: 0.75rem; font-size: 0.8rem; color: #D1FAE5;">
+            Effective Overall Tax Rate: <strong id="tax-effective-rate">0%</strong>
+          </div>
+        </div>
+
+        <div class="data-table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Annual Amount</th>
+                <th>Monthly Equivalent</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Gross Earnings</strong></td>
+                <td id="row-gross">$0</td>
+                <td id="row-gross-mo">$0</td>
+              </tr>
+              <tr>
+                <td>Federal Income Tax (2026 Brackets)</td>
+                <td id="row-fed" style="color: #F87171;">-$0</td>
+                <td id="row-fed-mo" style="color: #F87171;">-$0</td>
+              </tr>
+              <tr>
+                <td>FICA Taxes (Social Security &amp; Medicare)</td>
+                <td id="row-fica" style="color: #F87171;">-$0</td>
+                <td id="row-fica-mo" style="color: #F87171;">-$0</td>
+              </tr>
+              <tr>
+                <td>State Income Tax</td>
+                <td id="row-state" style="color: #F87171;">-$0</td>
+                <td id="row-state-mo" style="color: #F87171;">-$0</td>
+              </tr>
+              <tr>
+                <td>Pre-Tax 401(k) &amp; HSA Contributions</td>
+                <td id="row-pretax" style="color: #38BDF8;">-$0</td>
+                <td id="row-pretax-mo" style="color: #38BDF8;">-$0</td>
+              </tr>
+              <tr style="background: rgba(16, 185, 129, 0.08); font-weight: 700;">
+                <td style="color: var(--brand-primary);">Net Take-Home Pay</td>
+                <td id="row-net" style="color: var(--brand-primary);">$0</td>
+                <td id="row-net-mo" style="color: var(--brand-primary);">$0</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div id="related-tools-mount"></div>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="../index.html" class="brand-logo" aria-label="FinCast Home">
+            <svg viewBox="0 0 32 32" width="24" height="24" fill="none">
+              <rect width="32" height="32" rx="8" fill="#1E293B"/>
+              <path d="M7 23L13 15L18 19L25 9" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="25" cy="9" r="2.5" fill="#38BDF8"/>
+            </svg>
+            <span>Fin<span class="highlight">Cast</span></span>
+          </a>
+          <p>Don’t just calculate it. See what happens.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Simulators</h4>
+          <ul>
+            <li><a href="debt-freedom-simulator.html">Debt Freedom</a></li>
+            <li><a href="investment-simulator.html">Investment What-If</a></li>
+            <li><a href="mortgage-simulator.html">Mortgage</a></li>
+            <li><a href="paycheck-tax-simulator.html">Paycheck &amp; Tax</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Trust Center</h4>
+          <ul>
+            <li><a href="trust-center.html">Trust Center</a></li>
+            <li><a href="methodology.html">Methodology</a></li>
+            <li><a href="sources.html">Data Sources</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="disclaimer.html">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 FinCast. All rights reserved. 2026 Federal &amp; FICA tax calculations.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/config.js"></script>
+  <script src="../js/analytics.js"></script>
+  <script src="../js/engine/tax-engine.js"></script>
+  <script src="../js/components/tool-finder.js"></script>
+  <script src="../js/components/ad-manager.js"></script>
+  <script src="../js/components/related-tools.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const inputs = ['tax-gross', 'tax-status', 'tax-state', 'tax-401k', 'tax-hsa'];
+
+      function calculate() {
+        const options = {
+          grossAnnualIncome: Number(document.getElementById('tax-gross').value) || 85000,
+          filingStatus: document.getElementById('tax-status').value,
+          stateTaxRatePercent: Number(document.getElementById('tax-state').value) || 4.5,
+          preTax401k: Number(document.getElementById('tax-401k').value) || 0,
+          preTaxHsaFsa: Number(document.getElementById('tax-hsa').value) || 0
+        };
+
+        const res = TaxEngine.calculateTakeHomePay(options);
+
+        document.getElementById('tax-monthly-net').textContent = `$${res.monthlyTakeHome.toLocaleString()}`;
+        document.getElementById('tax-biweekly-net').textContent = `$${res.biWeeklyTakeHome.toLocaleString()}`;
+        document.getElementById('tax-effective-rate').textContent = `${res.effectiveTaxRate}%`;
+
+        document.getElementById('row-gross').textContent = `$${res.grossAnnualIncome.toLocaleString()}`;
+        document.getElementById('row-gross-mo').textContent = `$${Math.round(res.grossAnnualIncome / 12).toLocaleString()}`;
+
+        document.getElementById('row-fed').textContent = `-$${res.federalTax.toLocaleString()}`;
+        document.getElementById('row-fed-mo').textContent = `-$${Math.round(res.federalTax / 12).toLocaleString()}`;
+
+        document.getElementById('row-fica').textContent = `-$${res.totalFicaTax.toLocaleString()}`;
+        document.getElementById('row-fica-mo').textContent = `-$${Math.round(res.totalFicaTax / 12).toLocaleString()}`;
+
+        document.getElementById('row-state').textContent = `-$${res.stateTax.toLocaleString()}`;
+        document.getElementById('row-state-mo').textContent = `-$${Math.round(res.stateTax / 12).toLocaleString()}`;
+
+        document.getElementById('row-pretax').textContent = `-$${res.preTaxDeductions.toLocaleString()}`;
+        document.getElementById('row-pretax-mo').textContent = `-$${Math.round(res.preTaxDeductions / 12).toLocaleString()}`;
+
+        document.getElementById('row-net').textContent = `$${res.netAnnualTakeHome.toLocaleString()}`;
+        document.getElementById('row-net-mo').textContent = `$${res.monthlyTakeHome.toLocaleString()}`;
+      }
+
+      inputs.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.addEventListener('input', calculate);
+      });
+
+      calculate();
+      if (window.FinCastRelatedTools) window.FinCastRelatedTools.render('related-tools-mount', 'paycheck-tax-simulator');
+    });
+  </script>
+</body>
+</html>

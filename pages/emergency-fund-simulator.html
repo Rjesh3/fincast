@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emergency Fund & Runway Calculator — Financial Buffer Simulator | FinCast</title>
+  <meta name="description" content="Calculate your recommended emergency fund cushion (3, 6, or 9 months), assess income risk, project HYSA savings growth, and build financial resilience.">
+  <meta name="keywords" content="emergency fund calculator, financial runway simulator, hysa savings calculator, 3 month emergency fund, 6 month emergency fund, emergency savings goal">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://fincast.app/pages/emergency-fund-simulator.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://fincast.app/pages/emergency-fund-simulator.html">
+  <meta property="og:title" content="Emergency Fund & Runway Calculator — FinCast">
+  <meta property="og:description" content="Determine your target emergency fund buffer and calculate interest yield on High-Yield Savings Accounts (HYSA).">
+  <meta property="og:image" content="https://fincast.app/assets/og-preview.svg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Emergency Fund & Runway Calculator — Financial Buffer Simulator | FinCast">
+  <meta name="twitter:description" content="Calculate your recommended emergency fund cushion (3, 6, or 9 months), assess income risk, project HYSA savings growth, and build financial resilience.">
+  <meta name="twitter:image" content="https://fincast.app/assets/og-preview.svg">
+
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/tools.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "FinCast Emergency Fund & Runway Simulator",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "All modern web browsers",
+        "offers": { "@type": "Offer", "price": "0.00", "priceCurrency": "USD" },
+        "description": "Assess emergency savings buffer requirements based on personal risk profile and essential monthly expense breakdown."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincast.app/" },
+          { "@type": "ListItem", "position": 2, "name": "Tools Directory", "item": "https://fincast.app/pages/tools-directory.html" },
+          { "@type": "ListItem", "position": 3, "name": "Emergency Fund Calculator", "item": "https://fincast.app/pages/emergency-fund-simulator.html" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Header Navigation -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="../index.html" class="brand-logo" aria-label="FinCast Home">
+        <svg viewBox="0 0 32 32" width="28" height="28" fill="none">
+          <rect width="32" height="32" rx="8" fill="#1E293B"/>
+          <path d="M7 23L13 15L18 19L25 9" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="25" cy="9" r="2.5" fill="#38BDF8"/>
+        </svg>
+        <span>Fin<span class="highlight">Cast</span></span>
+      </a>
+
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-links">
+          <li><a href="debt-freedom-simulator.html" class="nav-link">Debt Freedom</a></li>
+          <li><a href="investment-simulator.html" class="nav-link">Investment What-If</a></li>
+          <li><a href="emergency-fund-simulator.html" class="nav-link active">Emergency Fund</a></li>
+          <li><a href="fire-simulator.html" class="nav-link">FIRE Simulator</a></li>
+          <li><a href="tools-directory.html" class="nav-link">All Tools</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <select id="currency-select" class="currency-select" aria-label="Select Currency">
+          <option value="$">$ (USD)</option>
+          <option value="€">€ (EUR)</option>
+          <option value="£">£ (GBP)</option>
+          <option value="₹">₹ (INR)</option>
+        </select>
+        <button id="theme-toggle-btn" class="theme-toggle-btn">🌙</button>
+        <button class="search-trigger-btn" aria-label="Search tools">🔍 <kbd>Ctrl+K</kbd></button>
+        <button class="mobile-nav-toggle" aria-label="Open mobile menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top: 2rem; padding-bottom: 4rem;">
+    <ul class="breadcrumb">
+      <li><a href="../index.html">Home</a></li>
+      <li class="breadcrumb-separator">/</li>
+      <li><a href="tools-directory.html">Tools</a></li>
+      <li class="breadcrumb-separator">/</li>
+      <li aria-current="page">Emergency Fund Calculator</li>
+    </ul>
+
+    <div style="max-width: 800px; margin-bottom: 2rem;">
+      <div class="badge badge-cyan" style="margin-bottom: 0.75rem;">🛡️ Financial Security &amp; Cushion</div>
+      <h1>Emergency Fund &amp; Runway Calculator</h1>
+      <p style="font-size: 1.1rem; margin-top: 0.5rem;">
+        Calculate how many months of living expenses your cash buffer covers. Assess your risk profile, set a target, and see HYSA yield earnings.
+      </p>
+    </div>
+
+    <!-- Quick Presets -->
+    <div style="margin-bottom: 2rem;">
+      <div style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.75rem;">⚡ Quick Presets</div>
+      <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+        <button class="btn btn-sm btn-outline preset-btn" data-savings="6000" data-housing="1500" data-food="500" data-debt="300" data-target="6">
+          🏢 6-Month Corporate Cushion ($6k savings)
+        </button>
+        <button class="btn btn-sm btn-outline preset-btn" data-savings="15000" data-housing="2200" data-food="750" data-debt="600" data-target="9">
+          🚀 9-Month Freelance Buffer ($15k savings)
+        </button>
+      </div>
+    </div>
+
+    <div class="calculator-layout">
+      <!-- Input Panel -->
+      <div class="calc-panel-input">
+        <div class="calc-section-header">
+          <h3><span>📝</span> Essential Monthly Expenses</h3>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+          <div class="form-group">
+            <label class="form-label" for="ef-housing">Rent / Mortgage ($)</label>
+            <input type="number" id="ef-housing" value="1600" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="ef-food">Groceries &amp; Food ($)</label>
+            <input type="number" id="ef-food" value="650" class="form-control" />
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+          <div class="form-group">
+            <label class="form-label" for="ef-utilities">Utilities &amp; Bills ($)</label>
+            <input type="number" id="ef-utilities" value="280" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="ef-debt">Debt Minimums ($)</label>
+            <input type="number" id="ef-debt" value="350" class="form-control" />
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;">
+          <div class="form-group">
+            <label class="form-label" for="ef-insurance">Insurance &amp; Medical ($)</label>
+            <input type="number" id="ef-insurance" value="400" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="ef-transport">Transport &amp; Gas ($)</label>
+            <input type="number" id="ef-transport" value="320" class="form-control" />
+          </div>
+        </div>
+
+        <div class="calc-section-header" style="margin-top: 1.5rem;">
+          <h3><span>💰</span> Savings &amp; Target Cushion</h3>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+          <div class="form-group">
+            <label class="form-label" for="ef-current-savings">Current Liquid Savings ($)</label>
+            <input type="number" id="ef-current-savings" value="8500" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="ef-monthly-contrib">Monthly Deposit ($)</label>
+            <input type="number" id="ef-monthly-contrib" value="450" class="form-control" />
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div class="form-group">
+            <label class="form-label" for="ef-target-months">Target Buffer (Months)</label>
+            <select id="ef-target-months" class="form-control">
+              <option value="3">3 Months (Baseline)</option>
+              <option value="6" selected>6 Months (Recommended)</option>
+              <option value="9">9 Months (Variable Income)</option>
+              <option value="12">12 Months (High Risk)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="ef-hysa-apy">HYSA APY (%)</label>
+            <input type="number" id="ef-hysa-apy" step="0.1" value="4.25" class="form-control" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Output Panel -->
+      <div class="calc-panel-results">
+        <div class="delta-highlight-card" style="margin-bottom: 1.5rem;">
+          <div class="delta-metrics-grid">
+            <div class="delta-metric-item">
+              <p>Current Runway</p>
+              <h4 id="res-runway" style="color: var(--brand-secondary); font-size: 2rem;">2.4 Months</h4>
+              <span id="res-percent-funded" style="font-size: 0.8rem; color: var(--text-muted);">40% Funded</span>
+            </div>
+            <div class="delta-metric-item">
+              <p>Target Emergency Fund</p>
+              <h4 id="res-target-amt" style="font-size: 1.75rem;">$21,600</h4>
+              <span id="res-deficit" style="font-size: 0.8rem; color: var(--brand-warning);">$13,100 Deficit</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); padding: 1.25rem; border-radius: var(--radius-md); margin-bottom: 1.5rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+            <span style="font-size: 0.9rem; font-weight: 600;">Monthly Essential Spend:</span>
+            <span id="res-monthly-spend" style="font-weight: 800; color: var(--brand-primary); font-family: var(--font-mono); font-size: 1.1rem;">$3,600/mo</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+            <span style="font-size: 0.9rem; font-weight: 600;">Time to Reach Target:</span>
+            <span id="res-months-to-goal" style="font-weight: 700; color: var(--text-primary);">26 Months</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-size: 0.9rem; font-weight: 600;">Annual Interest Yield (HYSA):</span>
+            <span id="res-hysa-yield" style="font-weight: 700; color: var(--brand-primary);">$918 / year</span>
+          </div>
+        </div>
+
+        <div id="share-mount"></div>
+      </div>
+    </div>
+
+    <div id="related-tools-mount" style="margin-top: 4rem;"></div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">&copy; 2026 FinCast. Free &amp; Private Financial Simulators.</div>
+    </div>
+  </footer>
+
+  <script src="../js/config.js"></script>
+  <script src="../js/analytics.js"></script>
+  <script src="../js/engine/emergency-fund-engine.js"></script>
+  <script src="../js/components/share-modal.js"></script>
+  <script src="../js/components/related-tools.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const inputs = [
+        'ef-housing', 'ef-food', 'ef-utilities', 'ef-debt', 'ef-insurance',
+        'ef-transport', 'ef-current-savings', 'ef-monthly-contrib',
+        'ef-target-months', 'ef-hysa-apy'
+      ];
+
+      let currSym = '$';
+
+      function calculate() {
+        if (!window.EmergencyFundEngine) return;
+
+        const options = {
+          housing: Number(document.getElementById('ef-housing').value),
+          food: Number(document.getElementById('ef-food').value),
+          utilities: Number(document.getElementById('ef-utilities').value),
+          debtPayments: Number(document.getElementById('ef-debt').value),
+          insurance: Number(document.getElementById('ef-insurance').value),
+          transport: Number(document.getElementById('ef-transport').value),
+          currentSavings: Number(document.getElementById('ef-current-savings').value),
+          monthlyContribution: Number(document.getElementById('ef-monthly-contrib').value),
+          targetMonths: Number(document.getElementById('ef-target-months').value),
+          hysaApy: Number(document.getElementById('ef-hysa-apy').value)
+        };
+
+        const res = window.EmergencyFundEngine.calculateBuffer(options);
+
+        document.getElementById('res-runway').textContent = `${res.currentRunwayMonths} Months`;
+        document.getElementById('res-percent-funded').textContent = `${res.percentFunded}% Funded`;
+        document.getElementById('res-target-amt').textContent = `${currSym}${res.targetAmount.toLocaleString()}`;
+        document.getElementById('res-deficit').textContent = res.deficit === 0 ? 'Fully Funded! 🎉' : `${currSym}${res.deficit.toLocaleString()} Deficit`;
+        document.getElementById('res-monthly-spend').textContent = `${currSym}${res.monthlyEssentialExpenses.toLocaleString()}/mo`;
+        document.getElementById('res-months-to-goal').textContent = res.monthsToGoal === 0 ? 'Achieved!' : `${res.monthsToGoal} Months`;
+        document.getElementById('res-hysa-yield').textContent = `${currSym}${res.annualHYSAInterestAtTarget.toLocaleString()} / year`;
+      }
+
+      inputs.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.addEventListener('input', calculate);
+      });
+
+      document.querySelectorAll('.preset-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.getElementById('ef-current-savings').value = btn.dataset.savings;
+          document.getElementById('ef-housing').value = btn.dataset.housing;
+          document.getElementById('ef-food').value = btn.dataset.food;
+          document.getElementById('ef-debt').value = btn.dataset.debt;
+          document.getElementById('ef-target-months').value = btn.dataset.target;
+          calculate();
+        });
+      });
+
+      calculate();
+      if (window.FinCastRelatedTools) window.FinCastRelatedTools.render('related-tools-mount', 'emergency-fund');
+    });
+  </script>
+</body>
+</html>

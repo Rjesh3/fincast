@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Side Hustle & Freelance Tax Calculator — 1099 Net Pay Simulator | FinCast</title>
+  <meta name="description" content="Calculate self-employment tax (15.3%), federal & state taxes, Schedule C write-offs, estimated quarterly payments, and true net hourly rate for 1099 side hustles.">
+  <meta name="keywords" content="side hustle tax calculator, self employment tax calculator, 1099 tax calculator, freelance net pay calculator, schedule c write offs, quarterly estimated tax calculator">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://fincast.app/pages/side-hustle-calculator.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://fincast.app/pages/side-hustle-calculator.html">
+  <meta property="og:title" content="Side Hustle & Freelance Tax Calculator — FinCast">
+  <meta property="og:description" content="Simulate self-employment tax, business expense write-offs, and true net take-home hourly pay.">
+  <meta property="og:image" content="https://fincast.app/assets/og-preview.svg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Side Hustle & Freelance Tax Calculator — 1099 Net Pay Simulator | FinCast">
+  <meta name="twitter:description" content="Calculate self-employment tax (15.3%), federal & state taxes, Schedule C write-offs, estimated quarterly payments, and true net hourly rate for 1099 side hustles.">
+  <meta name="twitter:image" content="https://fincast.app/assets/og-preview.svg">
+
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/tools.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "FinCast Side Hustle & Freelance Tax Simulator",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "All modern web browsers",
+        "offers": { "@type": "Offer", "price": "0.00", "priceCurrency": "USD" },
+        "description": "Calculate 15.3% self-employment tax, federal and state tax liability, tax savings from write-offs, and net hourly rates."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincast.app/" },
+          { "@type": "ListItem", "position": 2, "name": "Tools Directory", "item": "https://fincast.app/pages/tools-directory.html" },
+          { "@type": "ListItem", "position": 3, "name": "Side Hustle Tax Calculator", "item": "https://fincast.app/pages/side-hustle-calculator.html" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="../index.html" class="brand-logo" aria-label="FinCast Home">
+        <svg viewBox="0 0 32 32" width="28" height="28" fill="none">
+          <rect width="32" height="32" rx="8" fill="#1E293B"/>
+          <path d="M7 23L13 15L18 19L25 9" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="25" cy="9" r="2.5" fill="#38BDF8"/>
+        </svg>
+        <span>Fin<span class="highlight">Cast</span></span>
+      </a>
+
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-links">
+          <li><a href="debt-freedom-simulator.html" class="nav-link">Debt Freedom</a></li>
+          <li><a href="investment-simulator.html" class="nav-link">Investment What-If</a></li>
+          <li><a href="side-hustle-calculator.html" class="nav-link active">Side Hustle Tax</a></li>
+          <li><a href="fire-simulator.html" class="nav-link">FIRE Simulator</a></li>
+          <li><a href="tools-directory.html" class="nav-link">All Tools</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <select id="currency-select" class="currency-select" aria-label="Select Currency">
+          <option value="$">$ (USD)</option>
+          <option value="€">€ (EUR)</option>
+          <option value="£">£ (GBP)</option>
+        </select>
+        <button id="theme-toggle-btn" class="theme-toggle-btn">🌙</button>
+        <button class="search-trigger-btn" aria-label="Search tools">🔍 <kbd>Ctrl+K</kbd></button>
+        <button class="mobile-nav-toggle" aria-label="Open mobile menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top: 2rem; padding-bottom: 4rem;">
+    <ul class="breadcrumb">
+      <li><a href="../index.html">Home</a></li>
+      <li class="breadcrumb-separator">/</li>
+      <li><a href="tools-directory.html">Tools</a></li>
+      <li class="breadcrumb-separator">/</li>
+      <li aria-current="page">Side Hustle Tax Calculator</li>
+    </ul>
+
+    <div style="max-width: 800px; margin-bottom: 2rem;">
+      <div class="badge badge-emerald" style="margin-bottom: 0.75rem;">💼 1099 &amp; Self-Employment Taxes</div>
+      <h1>Side Hustle &amp; Freelance Tax Simulator</h1>
+      <p style="font-size: 1.1rem; margin-top: 0.5rem;">
+        Don't get blindsided by tax season. Calculate your 15.3% Self-Employment Tax, business write-off savings, quarterly payments, and true net hourly rate.
+      </p>
+    </div>
+
+    <!-- Quick Presets -->
+    <div style="margin-bottom: 2rem;">
+      <div style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.75rem;">⚡ Quick Presets</div>
+      <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+        <button class="btn btn-sm btn-outline preset-btn" data-gross="15000" data-expenses="2500" data-hours="8" data-w2="60000">
+          💻 Weekend Freelancer ($15k gross)
+        </button>
+        <button class="btn btn-sm btn-outline preset-btn" data-gross="45000" data-expenses="8000" data-hours="20" data-w2="85000">
+          🚀 Major Side Business ($45k gross)
+        </button>
+      </div>
+    </div>
+
+    <div class="calculator-layout">
+      <!-- Input Panel -->
+      <div class="calc-panel-input">
+        <div class="calc-section-header">
+          <h3><span>📊</span> Revenue &amp; Expenses</h3>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="sh-gross">Gross Annual Side Hustle Income ($)</label>
+          <input type="number" id="sh-gross" step="1000" value="25000" class="form-control" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="sh-expenses">Deductible Business Expenses ($)</label>
+          <input type="number" id="sh-expenses" step="500" value="3500" class="form-control" />
+          <span style="font-size: 0.75rem; color: var(--text-muted);">Software, equipment, home office, travel, mileage.</span>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;">
+          <div class="form-group" style="margin-bottom: 0;">
+            <label class="form-label" for="sh-hours">Hours Worked / Wk</label>
+            <input type="number" id="sh-hours" min="1" max="80" value="12" class="form-control" />
+          </div>
+          <div class="form-group" style="margin-bottom: 0;">
+            <label class="form-label" for="sh-w2">W2 Other Salary ($)</label>
+            <input type="number" id="sh-w2" step="5000" value="65000" class="form-control" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="sh-state-rate">State Income Tax Rate (%)</label>
+          <input type="number" id="sh-state-rate" min="0" max="13.3" step="0.5" value="5.0" class="form-control" />
+        </div>
+      </div>
+
+      <!-- Output Panel -->
+      <div class="calc-panel-results">
+        <div class="delta-highlight-card" style="margin-bottom: 1.5rem;">
+          <div class="delta-metrics-grid">
+            <div class="delta-metric-item">
+              <p>Net Take-Home Income</p>
+              <h4 id="res-sh-takehome" style="color: var(--brand-primary); font-size: 2rem;">$15,240</h4>
+              <span id="res-sh-effective-rate" style="font-size: 0.8rem; color: var(--text-muted);">29.1% Effective Tax</span>
+            </div>
+            <div class="delta-metric-item">
+              <p>True Net Hourly Rate</p>
+              <h4 id="res-sh-hourly" style="font-size: 1.75rem;">$25.40 / hr</h4>
+              <span id="res-sh-gross-hourly" style="font-size: 0.8rem; color: var(--text-secondary);">$41.67 gross rate</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); padding: 1.25rem; border-radius: var(--radius-md); margin-bottom: 1.5rem;">
+          <h4 style="font-size: 0.95rem; margin-bottom: 1rem;">🧾 Estimated Tax Breakdown</h4>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-size: 0.9rem;">
+            <span>Self-Employment Tax (15.3%):</span>
+            <strong id="res-sh-setax">$3,037</strong>
+          </div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-size: 0.9rem;">
+            <span>Federal Income Tax:</span>
+            <strong id="res-sh-fedtax">$2,255</strong>
+          </div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-size: 0.9rem;">
+            <span>State Income Tax:</span>
+            <strong id="res-sh-statetax">$968</strong>
+          </div>
+          <hr style="border: 0; border-top: 1px solid var(--border-subtle); margin: 0.75rem 0;" />
+          <div style="display: flex; justify-content: space-between; font-size: 0.95rem;">
+            <span>Quarterly Tax Voucher Payment:</span>
+            <strong id="res-sh-quarterly" style="color: var(--brand-warning);">$1,565 / quarter</strong>
+          </div>
+        </div>
+
+        <div style="background: rgba(16,185,129,0.06); border: 1px solid rgba(16,185,129,0.25); padding: 1rem; border-radius: var(--radius-md);">
+          <div style="font-size: 0.85rem; font-weight: 700; color: var(--brand-primary); margin-bottom: 0.25rem;">💡 Write-off Benefit</div>
+          <div style="font-size: 0.85rem; color: var(--text-secondary);">
+            Your $3,500 in business expenses saved you <strong id="res-sh-writeoff-savings">$1,385</strong> in direct taxes!
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="related-tools-mount" style="margin-top: 4rem;"></div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">&copy; 2026 FinCast. Free &amp; Private Financial Simulators.</div>
+    </div>
+  </footer>
+
+  <script src="../js/config.js"></script>
+  <script src="../js/analytics.js"></script>
+  <script src="../js/engine/side-hustle-engine.js"></script>
+  <script src="../js/components/share-modal.js"></script>
+  <script src="../js/components/related-tools.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const inputs = ['sh-gross', 'sh-expenses', 'sh-hours', 'sh-w2', 'sh-state-rate'];
+      let currSym = '$';
+
+      function calculate() {
+        if (!window.SideHustleEngine) return;
+
+        const options = {
+          grossIncome: Number(document.getElementById('sh-gross').value),
+          businessExpenses: Number(document.getElementById('sh-expenses').value),
+          hoursWorkedPerWeek: Number(document.getElementById('sh-hours').value),
+          w2OtherIncome: Number(document.getElementById('sh-w2').value),
+          stateTaxRate: Number(document.getElementById('sh-state-rate').value)
+        };
+
+        const res = window.SideHustleEngine.calculateTaxes(options);
+
+        document.getElementById('res-sh-takehome').textContent = `${currSym}${res.netTakeHome.toLocaleString()}`;
+        document.getElementById('res-sh-effective-rate').textContent = `${res.effectiveTaxRate}% Effective Tax`;
+        document.getElementById('res-sh-hourly').textContent = `${currSym}${res.netHourlyRate.toFixed(2)} / hr`;
+        document.getElementById('res-sh-gross-hourly').textContent = `${currSym}${res.grossHourlyRate.toFixed(2)} gross rate`;
+
+        document.getElementById('res-sh-setax').textContent = `${currSym}${res.seTax.toLocaleString()}`;
+        document.getElementById('res-sh-fedtax').textContent = `${currSym}${res.federalIncomeTax.toLocaleString()}`;
+        document.getElementById('res-sh-statetax').textContent = `${currSym}${res.stateIncomeTax.toLocaleString()}`;
+        document.getElementById('res-sh-quarterly').textContent = `${currSym}${res.quarterlyPayment.toLocaleString()} / quarter`;
+        document.getElementById('res-sh-writeoff-savings').textContent = `${currSym}${res.taxSavingsFromWriteOffs.toLocaleString()}`;
+      }
+
+      inputs.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.addEventListener('input', calculate);
+      });
+
+      document.querySelectorAll('.preset-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.getElementById('sh-gross').value = btn.dataset.gross;
+          document.getElementById('sh-expenses').value = btn.dataset.expenses;
+          document.getElementById('sh-hours').value = btn.dataset.hours;
+          document.getElementById('sh-w2').value = btn.dataset.w2;
+          calculate();
+        });
+      });
+
+      calculate();
+      if (window.FinCastRelatedTools) window.FinCastRelatedTools.render('related-tools-mount', 'side-hustle');
+    });
+  </script>
+</body>
+</html>

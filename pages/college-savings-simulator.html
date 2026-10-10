@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>College Savings & 529 Plan Simulator — Education Cost Calculator | FinCast</title>
+  <meta name="description" content="Simulate future 4-year college tuition with education inflation (5-7%), monthly 529 contributions, compound growth, and state tax deduction savings.">
+  <meta name="keywords" content="529 plan calculator, college savings simulator, tuition inflation calculator, 4 year college cost calculator, education savings goal">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://fincast.app/pages/college-savings-simulator.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://fincast.app/pages/college-savings-simulator.html">
+  <meta property="og:title" content="College Savings & 529 Plan Simulator — FinCast">
+  <meta property="og:description" content="Project future 4-year college costs and calculate monthly 529 plan savings required.">
+  <meta property="og:image" content="https://fincast.app/assets/og-preview.svg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="College Savings & 529 Plan Simulator — Education Cost Calculator | FinCast">
+  <meta name="twitter:description" content="Simulate future 4-year college tuition with education inflation (5-7%), monthly 529 contributions, compound growth, and state tax deduction savings.">
+  <meta name="twitter:image" content="https://fincast.app/assets/og-preview.svg">
+
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/tools.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "FinCast College Savings & 529 Plan Simulator",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "All modern web browsers",
+        "offers": { "@type": "Offer", "price": "0.00", "priceCurrency": "USD" },
+        "description": "Calculate projected 4-year college tuition costs with tuition inflation, 529 compound investment growth, and state tax savings."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincast.app/" },
+          { "@type": "ListItem", "position": 2, "name": "Tools Directory", "item": "https://fincast.app/pages/tools-directory.html" },
+          { "@type": "ListItem", "position": 3, "name": "College Savings Simulator", "item": "https://fincast.app/pages/college-savings-simulator.html" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="../index.html" class="brand-logo" aria-label="FinCast Home">
+        <svg viewBox="0 0 32 32" width="28" height="28" fill="none">
+          <rect width="32" height="32" rx="8" fill="#1E293B"/>
+          <path d="M7 23L13 15L18 19L25 9" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="25" cy="9" r="2.5" fill="#38BDF8"/>
+        </svg>
+        <span>Fin<span class="highlight">Cast</span></span>
+      </a>
+
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-links">
+          <li><a href="debt-freedom-simulator.html" class="nav-link">Debt Freedom</a></li>
+          <li><a href="investment-simulator.html" class="nav-link">Investment What-If</a></li>
+          <li><a href="college-savings-simulator.html" class="nav-link active">College Savings</a></li>
+          <li><a href="fire-simulator.html" class="nav-link">FIRE Simulator</a></li>
+          <li><a href="tools-directory.html" class="nav-link">All Tools</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <select id="currency-select" class="currency-select" aria-label="Select Currency">
+          <option value="$">$ (USD)</option>
+          <option value="€">€ (EUR)</option>
+          <option value="£">£ (GBP)</option>
+        </select>
+        <button id="theme-toggle-btn" class="theme-toggle-btn">🌙</button>
+        <button class="search-trigger-btn" aria-label="Search tools">🔍 <kbd>Ctrl+K</kbd></button>
+        <button class="mobile-nav-toggle" aria-label="Open mobile menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top: 2rem; padding-bottom: 4rem;">
+    <ul class="breadcrumb">
+      <li><a href="../index.html">Home</a></li>
+      <li class="breadcrumb-separator">/</li>
+      <li><a href="tools-directory.html">Tools</a></li>
+      <li class="breadcrumb-separator">/</li>
+      <li aria-current="page">College Savings Simulator</li>
+    </ul>
+
+    <div style="max-width: 800px; margin-bottom: 2rem;">
+      <div class="badge badge-amber" style="margin-bottom: 0.75rem;">🎓 529 &amp; Higher Education Planning</div>
+      <h1>College Savings &amp; 529 Plan Simulator</h1>
+      <p style="font-size: 1.1rem; margin-top: 0.5rem;">
+        College tuition rises 5-7% annually. Calculate the projected 4-year cost when your child turns 18, and discover the exact monthly deposit needed to cover it.
+      </p>
+    </div>
+
+    <!-- Quick Presets -->
+    <div style="margin-bottom: 2rem;">
+      <div style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.75rem;">⚡ Quick Presets</div>
+      <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+        <button class="btn btn-sm btn-outline preset-btn" data-age="2" data-type="public-in-state" data-contrib="300">
+          🏛️ Newborn — Public In-State ($300/mo)
+        </button>
+        <button class="btn btn-sm btn-outline preset-btn" data-age="5" data-type="private" data-contrib="600">
+          🎓 Age 5 — Private College Goal ($600/mo)
+        </button>
+      </div>
+    </div>
+
+    <div class="calculator-layout">
+      <!-- Input Panel -->
+      <div class="calc-panel-input">
+        <div class="calc-section-header">
+          <h3><span>👶</span> Child &amp; College Details</h3>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+          <div class="form-group">
+            <label class="form-label" for="cs-child-age">Child's Current Age</label>
+            <input type="number" id="cs-child-age" min="0" max="17" value="3" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="cs-college-type">Target College Type</label>
+            <select id="cs-college-type" class="form-control">
+              <option value="public-in-state" selected>4-Yr Public (In-State)</option>
+              <option value="public-out-state">4-Yr Public (Out-of-State)</option>
+              <option value="private">4-Yr Private University</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;">
+          <div class="form-group">
+            <label class="form-label" for="cs-current-savings">Current 529 Balance ($)</label>
+            <input type="number" id="cs-current-savings" step="1000" value="8000" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="cs-monthly-contrib">Monthly Deposit ($)</label>
+            <input type="number" id="cs-monthly-contrib" step="50" value="350" class="form-control" />
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div class="form-group">
+            <label class="form-label" for="cs-inflation">Tuition Inflation (%/yr)</label>
+            <input type="number" id="cs-inflation" step="0.5" value="5.0" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="cs-return">529 Expected Return (%)</label>
+            <input type="number" id="cs-return" step="0.5" value="7.0" class="form-control" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Output Panel -->
+      <div class="calc-panel-results">
+        <div class="delta-highlight-card" style="margin-bottom: 1.5rem;">
+          <div class="delta-metrics-grid">
+            <div class="delta-metric-item">
+              <p>Projected 4-Yr College Cost</p>
+              <h4 id="res-cs-total-cost" style="color: var(--brand-warning); font-size: 2rem;">$224,800</h4>
+              <span id="res-cs-future-annual" style="font-size: 0.8rem; color: var(--text-muted);">$54,000/year at Age 18</span>
+            </div>
+            <div class="delta-metric-item">
+              <p>Projected 529 Balance</p>
+              <h4 id="res-cs-529-bal" style="font-size: 1.75rem;">$154,200</h4>
+              <span id="res-cs-covered-pct" style="font-size: 0.8rem; color: var(--brand-primary);">68% of Total Cost Covered</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); padding: 1.25rem; border-radius: var(--radius-md); margin-bottom: 1.5rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+            <span style="font-size: 0.9rem; font-weight: 600;">Monthly Deposit to reach 100% Goal:</span>
+            <span id="res-cs-required-contrib" style="font-weight: 800; color: var(--brand-primary); font-family: var(--font-mono); font-size: 1.1rem;">$585 / mo</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-size: 0.9rem; font-weight: 600;">Annual State Tax Deduction Savings:</span>
+            <span id="res-cs-tax-savings" style="font-weight: 700; color: var(--brand-secondary);">$210 / year</span>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 1.5rem;">
+          <h4 style="font-size: 0.95rem; margin-bottom: 0.75rem;">📊 529 Accumulation Growth Curve</h4>
+          <div id="cs-chart-mount" style="min-height: 240px; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 1rem;"></div>
+        </div>
+
+        <div id="share-mount"></div>
+      </div>
+    </div>
+
+    <div id="related-tools-mount" style="margin-top: 4rem;"></div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">&copy; 2026 FinCast. Free &amp; Private Financial Simulators.</div>
+    </div>
+  </footer>
+
+  <script src="../js/config.js"></script>
+  <script src="../js/analytics.js"></script>
+  <script src="../js/engine/college-savings-engine.js"></script>
+  <script src="../js/components/svg-charts.js"></script>
+  <script src="../js/components/share-modal.js"></script>
+  <script src="../js/components/related-tools.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const inputs = [
+        'cs-child-age', 'cs-college-type', 'cs-current-savings',
+        'cs-monthly-contrib', 'cs-inflation', 'cs-return'
+      ];
+
+      let currSym = '$';
+
+      function calculate() {
+        if (!window.CollegeSavingsEngine) return;
+
+        const options = {
+          childAge: Number(document.getElementById('cs-child-age').value),
+          collegeType: document.getElementById('cs-college-type').value,
+          currentSavings: Number(document.getElementById('cs-current-savings').value),
+          monthlyContribution: Number(document.getElementById('cs-monthly-contrib').value),
+          tuitionInflation: Number(document.getElementById('cs-inflation').value),
+          investmentReturn: Number(document.getElementById('cs-return').value)
+        };
+
+        const res = window.CollegeSavingsEngine.calculateCollege(options);
+
+        document.getElementById('res-cs-total-cost').textContent = `${currSym}${res.total4YrCost.toLocaleString()}`;
+        document.getElementById('res-cs-future-annual').textContent = `${currSym}${res.futureAnnualTuition.toLocaleString()}/year at Age 18`;
+        document.getElementById('res-cs-529-bal').textContent = `${currSym}${res.final529Balance.toLocaleString()}`;
+        document.getElementById('res-cs-covered-pct').textContent = `${res.percentCovered}% of Total Cost Covered`;
+        document.getElementById('res-cs-required-contrib').textContent = `${currSym}${res.requiredMonthlyDeposit.toLocaleString()} / mo`;
+        document.getElementById('res-cs-tax-savings').textContent = `${currSym}${res.annualStateTaxSavings.toLocaleString()} / year`;
+
+        const chartMount = document.getElementById('cs-chart-mount');
+        if (chartMount && window.FinCastCharts) {
+          const dataA = res.yearlySchedule.map(s => ({ value: s.balance }));
+          const dataB = res.yearlySchedule.map(s => ({ value: s.totalContributions }));
+          window.FinCastCharts.renderLineChart(chartMount, {
+            dataA,
+            dataB,
+            labelA: '529 Portfolio Balance',
+            labelB: 'Your Deposits'
+          });
+        }
+      }
+
+      inputs.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.addEventListener('input', calculate);
+      });
+
+      document.querySelectorAll('.preset-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.getElementById('cs-child-age').value = btn.dataset.age;
+          document.getElementById('cs-college-type').value = btn.dataset.type;
+          document.getElementById('cs-monthly-contrib').value = btn.dataset.contrib;
+          calculate();
+        });
+      });
+
+      calculate();
+      if (window.FinCastRelatedTools) window.FinCastRelatedTools.render('related-tools-mount', 'college-savings');
+    });
+  </script>
+</body>
+</html>

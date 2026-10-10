@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Financial Resilience & Emergency Shock Simulator | FinCast</title>
+  <meta name="description" content="Stress-test your finances against job loss, medical emergencies, inflation spikes, and income drops. Calculate your true survival runway.">
+  <meta name="keywords" content="financial resilience, emergency fund calculator, job loss runway calculator, financial stress test, inflation shock simulator">
+  <link rel="canonical" href="https://fincast.app/pages/financial-resilience-simulator.html">
+
+  <!-- Open Graph / Social Cards -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://fincast.app/pages/financial-resilience-simulator.html">
+  <meta property="og:title" content="Financial Resilience & Emergency Shock Simulator | FinCast">
+  <meta property="og:description" content="Stress-test your finances against job loss, medical emergencies, inflation spikes, and income drops. Calculate your true survival runway.">
+  <meta property="og:image" content="https://fincast.app/assets/og-preview.svg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Financial Resilience & Emergency Shock Simulator | FinCast">
+  <meta name="twitter:description" content="Stress-test your finances against job loss, medical emergencies, inflation spikes, and income drops. Calculate your true survival runway.">
+  <meta name="twitter:image" content="https://fincast.app/assets/og-preview.svg">
+  <meta property="og:site_name" content="FinCast">
+
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/tools.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Financial Resilience & Emergency Shock Simulator | FinCast",
+    "description": "Stress-test your finances against job loss, medical emergencies, inflation spikes, and income drops. Calculate your true survival runway.",
+    "url": "https://fincast.app/pages/financial-resilience-simulator.html",
+    "publisher": {
+      "@type": "Organization",
+      "name": "FinCast",
+      "logo": "https://fincast.app/assets/logo.svg"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="../index.html" class="brand-logo" aria-label="FinCast Home">
+        <svg viewBox="0 0 32 32" width="28" height="28" fill="none">
+          <rect width="32" height="32" rx="8" fill="#1E293B"/>
+          <path d="M7 23L13 15L18 19L25 9" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="25" cy="9" r="2.5" fill="#38BDF8"/>
+        </svg>
+        <span>Fin<span class="highlight">Cast</span></span>
+      </a>
+
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-links">
+          <li><a href="debt-freedom-simulator.html" class="nav-link">Debt Freedom</a></li>
+          <li><a href="investment-simulator.html" class="nav-link">Investment What-If</a></li>
+          <li><a href="financial-health-score.html" class="nav-link">Health Score</a></li>
+          <li><a href="financial-resilience-simulator.html" class="nav-link active">Resilience</a></li>
+          <li><a href="tools-directory.html" class="nav-link">All Tools</a></li>
+          <li><a href="trust-center.html" class="nav-link">Trust Center</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="search-trigger-btn" aria-label="Search tools">
+          <span>🔍</span>
+          <span>Search</span>
+          <kbd>Ctrl+K</kbd>
+        </button>
+        <button class="mobile-nav-toggle" aria-label="Open mobile menu" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top: 2rem; padding-bottom: 4rem;">
+    <ul class="breadcrumb">
+      <li><a href="../index.html">Home</a></li>
+      <li class="breadcrumb-separator">/</li>
+      <li><a href="tools-directory.html">Tools</a></li>
+      <li class="breadcrumb-separator">/</li>
+      <li aria-current="page">Resilience Simulator</li>
+    </ul>
+
+    <div style="max-width: 800px; margin-bottom: 2rem;">
+      <div class="badge badge-amber" style="margin-bottom: 0.75rem;">🛡️ Crisis Stress-Test Engine</div>
+      <h1>Financial Resilience &amp; Shock Simulator</h1>
+      <p style="font-size: 1.1rem; margin-top: 0.5rem;">
+        How long could your household survive if a sudden crisis hit tomorrow? Simulate the exact impact of job loss, emergency medical expenses, pay cuts, and inflation spikes.
+      </p>
+    </div>
+
+    <!-- Ad Slot -->
+    <div class="ad-slot-container" data-ad-slot="top-banner"></div>
+
+    <div class="calculator-layout">
+      <!-- Inputs -->
+      <div class="calc-panel-input">
+        <div class="calc-section-header">
+          <h3><span>🛡️</span> Baseline Safety Cushion</h3>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;">
+          <div>
+            <label class="form-label" for="res-savings">Liquid Savings / Emergency ($)</label>
+            <div class="input-with-affix">
+              <span class="input-affix-prefix">$</span>
+              <input type="number" id="res-savings" min="0" step="1000" value="15000" class="form-control form-control-has-prefix" />
+            </div>
+          </div>
+          <div>
+            <label class="form-label" for="res-income">Gross Monthly Income ($)</label>
+            <div class="input-with-affix">
+              <span class="input-affix-prefix">$</span>
+              <input type="number" id="res-income" min="500" step="250" value="6500" class="form-control form-control-has-prefix" />
+            </div>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;">
+          <div>
+            <label class="form-label" for="res-essential">Essential Monthly Needs ($)</label>
+            <div class="input-with-affix">
+              <span class="input-affix-prefix">$</span>
+              <input type="number" id="res-essential" min="500" step="100" value="3400" class="form-control form-control-has-prefix" />
+            </div>
+          </div>
+          <div>
+            <label class="form-label" for="res-discretionary">Discretionary Spending ($)</label>
+            <div class="input-with-affix">
+              <span class="input-affix-prefix">$</span>
+              <input type="number" id="res-discretionary" min="0" step="100" value="1200" class="form-control form-control-has-prefix" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Shock Type Selector -->
+        <div class="form-group" style="margin-top: 1.5rem;">
+          <label class="form-label">
+            <span>Select Crisis Shock Scenario</span>
+          </label>
+          <div class="segmented-control" role="tablist">
+            <button class="segmented-btn active" data-shock="job_loss" role="tab">Job Loss</button>
+            <button class="segmented-btn" data-shock="medical_emergency" role="tab">$6k Emergency</button>
+            <button class="segmented-btn" data-shock="income_drop" role="tab">25% Pay Cut</button>
+            <button class="segmented-btn" data-shock="inflation_spike" role="tab">+15% Inflation</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Results -->
+      <div class="calc-panel-results">
+        <div class="calc-section-header">
+          <h3><span>📊</span> Survival Runway</h3>
+        </div>
+
+        <div class="delta-highlight-card" style="background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);">
+          <div class="delta-title" id="res-shock-title" style="color: #FBBF24;">✦ Complete Job Loss</div>
+          <div class="delta-metrics-grid">
+            <div class="delta-metric-item">
+              <p>Survival Runway</p>
+              <h4 id="res-runway-val" style="color: #38BDF8;">0 Months</h4>
+            </div>
+            <div class="delta-metric-item">
+              <p>Monthly Cash Burn</p>
+              <h4 id="res-burn-val" style="color: #F87171;">-$0</h4>
+            </div>
+          </div>
+          <div style="margin-top: 0.75rem; font-size: 0.8rem; color: var(--text-secondary);" id="res-shock-desc"></div>
+        </div>
+
+        <div style="background: var(--bg-surface-elevated); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 1rem; margin-top: 1rem;">
+          <div style="font-size: 0.85rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.35rem;">Resilience Grade</div>
+          <div id="res-grade-pill" class="badge badge-emerald" style="font-size: 0.85rem; padding: 0.35rem 0.75rem;">Bulletproof</div>
+          <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.5rem;" id="res-buffer-target-text"></p>
+        </div>
+      </div>
+    </div>
+
+    <div id="related-tools-mount"></div>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="../index.html" class="brand-logo" aria-label="FinCast Home">
+            <svg viewBox="0 0 32 32" width="24" height="24" fill="none">
+              <rect width="32" height="32" rx="8" fill="#1E293B"/>
+              <path d="M7 23L13 15L18 19L25 9" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="25" cy="9" r="2.5" fill="#38BDF8"/>
+            </svg>
+            <span>Fin<span class="highlight">Cast</span></span>
+          </a>
+          <p>Don’t just calculate it. See what happens.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Simulators</h4>
+          <ul>
+            <li><a href="debt-freedom-simulator.html">Debt Freedom</a></li>
+            <li><a href="investment-simulator.html">Investment What-If</a></li>
+            <li><a href="financial-resilience-simulator.html">Resilience Simulator</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Trust Center</h4>
+          <ul>
+            <li><a href="trust-center.html">Trust Center</a></li>
+            <li><a href="methodology.html">Methodology</a></li>
+            <li><a href="sources.html">Data Sources</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="disclaimer.html">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 FinCast. All rights reserved. Mathematical financial stress testing.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/config.js"></script>
+  <script src="../js/analytics.js"></script>
+  <script src="../js/engine/resilience-engine.js"></script>
+  <script src="../js/components/tool-finder.js"></script>
+  <script src="../js/components/ad-manager.js"></script>
+  <script src="../js/components/related-tools.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      let activeShock = 'job_loss';
+      const inputs = ['res-savings', 'res-income', 'res-essential', 'res-discretionary'];
+      const shockBtns = document.querySelectorAll('[data-shock]');
+
+      function calculate() {
+        const data = {
+          liquidSavings: Number(document.getElementById('res-savings').value) || 15000,
+          monthlyIncome: Number(document.getElementById('res-income').value) || 6500,
+          monthlyEssentialExpenses: Number(document.getElementById('res-essential').value) || 3400,
+          monthlyDiscretionary: Number(document.getElementById('res-discretionary').value) || 1200,
+          shockType: activeShock
+        };
+
+        const res = ResilienceEngine.simulateShock(data);
+
+        document.getElementById('res-shock-title').textContent = `✦ ${res.shockTitle}`;
+        document.getElementById('res-runway-val').textContent = res.runwayMonths;
+        document.getElementById('res-burn-val').textContent = `-$${res.monthlyNetBurn.toLocaleString()}/mo`;
+        document.getElementById('res-shock-desc').textContent = res.shockDescription;
+
+        const gradePill = document.getElementById('res-grade-pill');
+        gradePill.textContent = res.gradeLabel;
+        gradePill.style.backgroundColor = res.gradeColor;
+        gradePill.style.color = '#0B0F19';
+
+        document.getElementById('res-buffer-target-text').textContent =
+          `Recommended 6-month essential reserve target: $${res.target6MonthBuffer.toLocaleString()}.`;
+      }
+
+      inputs.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.addEventListener('input', calculate);
+      });
+
+      shockBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          shockBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          activeShock = btn.getAttribute('data-shock');
+          calculate();
+        });
+      });
+
+      calculate();
+      if (window.FinCastRelatedTools) window.FinCastRelatedTools.render('related-tools-mount', 'financial-resilience-simulator');
+    });
+  </script>
+</body>
+</html>

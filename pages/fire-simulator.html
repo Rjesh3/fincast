@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FIRE Simulator — Financial Independence Retire Early Calculator | FinCast</title>
+  <meta name="description" content="Calculate your FIRE target net worth, early retirement age, Safe Withdrawal Rate (SWR), Coast FIRE, Lean FIRE, and Fat FIRE milestones with interactive projections.">
+  <meta name="keywords" content="FIRE calculator, financial independence retire early, coast fire, lean fire, fat fire, safe withdrawal rate, 4% rule calculator, early retirement simulator">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://fincast.app/pages/fire-simulator.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://fincast.app/pages/fire-simulator.html">
+  <meta property="og:title" content="FIRE Simulator — Calculate Your Early Retirement Age | FinCast">
+  <meta property="og:description" content="Simulate early retirement milestones: FIRE Target, Coast FIRE, SWR, and portfolio longevity. 100% free and private.">
+  <meta property="og:image" content="https://fincast.app/assets/og-preview.svg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="FIRE Simulator — FinCast">
+  <meta name="twitter:description" content="Find out your FIRE age, Lean/Fat FIRE targets, and compounding timeline.">
+  <meta name="twitter:image" content="https://fincast.app/assets/og-preview.svg">
+
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/tools.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+
+  <!-- Structured Data JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "FinCast FIRE & Early Retirement Simulator",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "All modern web browsers",
+        "offers": { "@type": "Offer", "price": "0.00", "priceCurrency": "USD" },
+        "description": "Calculate FIRE Target Number, Coast FIRE, Lean FIRE, Fat FIRE, and projected retirement age."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincast.app/" },
+          { "@type": "ListItem", "position": 2, "name": "Tools Directory", "item": "https://fincast.app/pages/tools-directory.html" },
+          { "@type": "ListItem", "position": 3, "name": "FIRE Simulator", "item": "https://fincast.app/pages/fire-simulator.html" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is the 4% Safe Withdrawal Rate (SWR)?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The 4% rule, based on Trinity Study research, states that withdrawing 4% of your initial portfolio in year one (adjusted for inflation thereafter) has a historical 95%+ probability of lasting 30+ years without running out of money."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is Coast FIRE?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Coast FIRE is the milestone where your existing invested portfolio is already large enough that compound interest alone will grow it to your full FIRE target by traditional retirement age (e.g., 65), meaning you only need to earn enough to cover current living expenses."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="../index.html" class="brand-logo" aria-label="FinCast Home">
+        <svg viewBox="0 0 32 32" width="28" height="28" fill="none">
+          <rect width="32" height="32" rx="8" fill="#1E293B"/>
+          <path d="M7 23L13 15L18 19L25 9" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="25" cy="9" r="2.5" fill="#38BDF8"/>
+        </svg>
+        <span>Fin<span class="highlight">Cast</span></span>
+      </a>
+
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-links">
+          <li><a href="debt-freedom-simulator.html" class="nav-link">Debt Freedom</a></li>
+          <li><a href="investment-simulator.html" class="nav-link">Investment What-If</a></li>
+          <li><a href="fire-simulator.html" class="nav-link active">FIRE Simulator</a></li>
+          <li><a href="mortgage-simulator.html" class="nav-link">Mortgage</a></li>
+          <li><a href="tools-directory.html" class="nav-link">All Tools</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="currency-selector-wrap">
+          <select id="currency-select" class="currency-select" aria-label="Select Currency">
+            <option value="$">$ (USD)</option>
+            <option value="€">€ (EUR)</option>
+            <option value="£">£ (GBP)</option>
+            <option value="₹">₹ (INR)</option>
+            <option value="C$">C$ (CAD)</option>
+            <option value="A$">A$ (AUD)</option>
+          </select>
+        </div>
+        <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle Dark/Light Mode">🌙</button>
+        <button class="search-trigger-btn" aria-label="Search tools">
+          <span>🔍</span>
+          <kbd>Ctrl+K</kbd>
+        </button>
+        <button class="mobile-nav-toggle" aria-label="Open mobile menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top: 2rem; padding-bottom: 4rem;">
+    <!-- Breadcrumb -->
+    <ul class="breadcrumb">
+      <li><a href="../index.html">Home</a></li>
+      <li class="breadcrumb-separator">/</li>
+      <li><a href="tools-directory.html">Tools</a></li>
+      <li class="breadcrumb-separator">/</li>
+      <li aria-current="page">FIRE Simulator</li>
+    </ul>
+
+    <!-- Header Intro -->
+    <div style="max-width: 800px; margin-bottom: 2rem;">
+      <div class="badge badge-amber" style="margin-bottom: 0.75rem;">🔥 Financial Independence, Retire Early</div>
+      <h1>FIRE &amp; Early Retirement Simulator</h1>
+      <p style="font-size: 1.1rem; margin-top: 0.5rem;">
+        Simulate your timeline to financial independence. Discover your exact FIRE number, test Safe Withdrawal Rates (SWR), and see when work becomes optional.
+      </p>
+    </div>
+
+    <!-- Quick Preset Scenario Cards -->
+    <div style="margin-bottom: 2rem;">
+      <div style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.75rem;">⚡ Quick Simulation Presets</div>
+      <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+        <button class="btn btn-sm btn-outline preset-btn" data-age="30" data-networth="75000" data-expenses="60000" data-savings="2500">
+          🌱 Standard FIRE (Age 30, $2.5k/mo savings)
+        </button>
+        <button class="btn btn-sm btn-outline preset-btn" data-age="26" data-networth="25000" data-expenses="40000" data-savings="1800">
+          🥗 Lean FIRE ($40k expenses)
+        </button>
+        <button class="btn btn-sm btn-outline preset-btn" data-age="35" data-networth="200000" data-expenses="100000" data-savings="4500">
+          👑 Fat FIRE ($100k expenses)
+        </button>
+      </div>
+    </div>
+
+    <!-- Main Tool Calculator Layout -->
+    <div class="calculator-layout">
+      <!-- Input Panel -->
+      <div class="calc-panel-input">
+        <div class="calc-section-header">
+          <h3><span>⚙️</span> Your FIRE Parameters</h3>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;">
+          <div class="form-group" style="margin-bottom: 0;">
+            <label class="form-label" for="fire-current-age">Current Age</label>
+            <input type="number" id="fire-current-age" min="18" max="75" value="30" class="form-control" />
+          </div>
+          <div class="form-group" style="margin-bottom: 0;">
+            <label class="form-label" for="fire-networth">Current Invested Net Worth</label>
+            <div class="input-with-affix">
+              <span class="input-affix-prefix currency-symbol">$</span>
+              <input type="number" id="fire-networth" min="0" step="5000" value="75000" class="form-control form-control-has-prefix" />
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="fire-annual-expenses">Desired Annual Spending in Retirement</label>
+          <div class="input-with-affix">
+            <span class="input-affix-prefix currency-symbol">$</span>
+            <input type="number" id="fire-annual-expenses" min="12000" step="5000" value="60000" class="form-control form-control-has-prefix" />
+          </div>
+        </div>
+
+        <div class="slider-group" style="margin-bottom: 1.25rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+            <label class="form-label" for="fire-monthly-savings-slider" style="margin: 0;">Monthly Savings Contribution:</label>
+            <span id="fire-monthly-savings-val" style="font-weight: 800; color: var(--brand-primary); font-family: var(--font-mono); font-size: 1.1rem;">$2,500/mo</span>
+          </div>
+          <input type="range" id="fire-monthly-savings-slider" class="range-slider" min="200" max="10000" step="100" value="2500" />
+          <input type="hidden" id="fire-monthly-savings" value="2500" />
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;">
+          <div class="form-group" style="margin-bottom: 0;">
+            <label class="form-label" for="fire-return-rate">Expected Return (%)</label>
+            <input type="number" id="fire-return-rate" min="1" max="15" step="0.5" value="8.0" class="form-control" />
+          </div>
+          <div class="form-group" style="margin-bottom: 0;">
+            <label class="form-label" for="fire-swr">Safe Withdrawal Rate (%)</label>
+            <input type="number" id="fire-swr" min="2.5" max="6.0" step="0.25" value="4.0" class="form-control" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="fire-side-hustle">Expected Annual Post-Retirement Side Income</label>
+          <div class="input-with-affix">
+            <span class="input-affix-prefix currency-symbol">$</span>
+            <input type="number" id="fire-side-hustle" min="0" step="1000" value="0" class="form-control form-control-has-prefix" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Output Panel -->
+      <div class="calc-panel-results">
+        <!-- Hero Metrics Banner -->
+        <div class="delta-highlight-card" style="margin-bottom: 1.5rem; background: linear-gradient(135deg, rgba(16,185,129,0.12), rgba(6,182,212,0.08));">
+          <div class="delta-metrics-grid">
+            <div class="delta-metric-item">
+              <p>FIRE Reached Age</p>
+              <h4 id="res-fire-age" style="color: var(--brand-primary); font-size: 2rem;">Age 45</h4>
+              <span id="res-fire-year" style="font-size: 0.8rem; color: var(--text-muted);">Year 2041</span>
+            </div>
+            <div class="delta-metric-item">
+              <p>Target FIRE Nest Egg</p>
+              <h4 id="res-fire-target" style="font-size: 1.75rem;">$1,500,000</h4>
+              <span id="res-fire-passive" style="font-size: 0.8rem; color: var(--text-secondary);">$5,000/mo passive</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Milestones Badges Grid -->
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin-bottom: 1.5rem;">
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); padding: 0.75rem; border-radius: var(--radius-md); text-align: center;">
+            <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">🥗 Lean FIRE</div>
+            <div id="res-lean-fire" style="font-weight: 700; color: var(--text-primary); margin-top: 0.25rem;">$1,125,000</div>
+          </div>
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); padding: 0.75rem; border-radius: var(--radius-md); text-align: center;">
+            <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">👑 Fat FIRE</div>
+            <div id="res-fat-fire" style="font-weight: 700; color: var(--text-primary); margin-top: 0.25rem;">$2,025,000</div>
+          </div>
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); padding: 0.75rem; border-radius: var(--radius-md); text-align: center;">
+            <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">🏖️ Coast FIRE</div>
+            <div id="res-coast-fire" style="font-weight: 700; color: var(--brand-secondary); margin-top: 0.25rem;">$198,000</div>
+          </div>
+        </div>
+
+        <!-- Visual Chart -->
+        <div style="margin-bottom: 1.5rem;">
+          <h4 style="font-size: 0.95rem; margin-bottom: 0.75rem;">📊 Wealth Accumulation Trajectory vs FIRE Target</h4>
+          <div id="fire-chart-mount" style="min-height: 240px; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 1rem;"></div>
+        </div>
+
+        <div id="share-mount"></div>
+      </div>
+    </div>
+
+    <!-- Related Tools Component Mount -->
+    <div id="related-tools-mount" style="margin-top: 4rem;"></div>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <div>&copy; 2026 FinCast. 100% Free &amp; Private.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/config.js"></script>
+  <script src="../js/analytics.js"></script>
+  <script src="../js/engine/fire-engine.js"></script>
+  <script src="../js/components/svg-charts.js"></script>
+  <script src="../js/components/share-modal.js"></script>
+  <script src="../js/components/tool-finder.js"></script>
+  <script src="../js/components/related-tools.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const slider = document.getElementById('fire-monthly-savings-slider');
+      const valDisplay = document.getElementById('fire-monthly-savings-val');
+      const hiddenInput = document.getElementById('fire-monthly-savings');
+
+      const inputs = [
+        'fire-current-age', 'fire-networth', 'fire-annual-expenses',
+        'fire-monthly-savings', 'fire-return-rate', 'fire-swr', 'fire-side-hustle'
+      ];
+
+      let currSym = '$';
+
+      function updateCurrencyDisplay() {
+        document.querySelectorAll('.currency-symbol').forEach(el => el.textContent = currSym);
+      }
+
+      function calculate() {
+        if (!window.FIREEngine) return;
+
+        const options = {
+          currentAge: Number(document.getElementById('fire-current-age').value),
+          currentNetWorth: Number(document.getElementById('fire-networth').value),
+          annualRetirementExpenses: Number(document.getElementById('fire-annual-expenses').value),
+          monthlySavings: Number(document.getElementById('fire-monthly-savings').value),
+          annualReturnRate: Number(document.getElementById('fire-return-rate').value),
+          swrRate: Number(document.getElementById('fire-swr').value),
+          sideHustleIncome: Number(document.getElementById('fire-side-hustle').value)
+        };
+
+        const res = window.FIREEngine.calculateFIRE(options);
+
+        document.getElementById('res-fire-age').textContent = typeof res.fireReachedAge === 'number' ? `Age ${res.fireReachedAge}` : res.fireReachedAge;
+        document.getElementById('res-fire-year').textContent = typeof res.fireReachedYear === 'number' ? `Year ${res.fireReachedYear}` : res.fireReachedYear;
+        document.getElementById('res-fire-target').textContent = `${currSym}${res.fireTarget.toLocaleString()}`;
+        document.getElementById('res-fire-passive').textContent = `${currSym}${res.monthlyPassiveIncomeAtFIRE.toLocaleString()}/mo passive`;
+
+        document.getElementById('res-lean-fire').textContent = `${currSym}${res.leanFireTarget.toLocaleString()}`;
+        document.getElementById('res-fat-fire').textContent = `${currSym}${res.fatFireTarget.toLocaleString()}`;
+        document.getElementById('res-coast-fire').textContent = `${currSym}${res.coastFireTarget.toLocaleString()}`;
+
+        // Render Chart
+        const chartMount = document.getElementById('fire-chart-mount');
+        if (chartMount && window.FinCastCharts) {
+          const dataA = res.yearlySchedule.map(s => ({ value: s.portfolioBalance }));
+          const dataB = res.yearlySchedule.map(s => ({ value: s.fireTarget }));
+          window.FinCastCharts.renderLineChart(chartMount, {
+            dataA,
+            dataB,
+            labelA: 'Portfolio Balance',
+            labelB: 'FIRE Target'
+          });
+        }
+      }
+
+      if (slider && valDisplay && hiddenInput) {
+        slider.addEventListener('input', (e) => {
+          valDisplay.textContent = `${currSym}${Number(e.target.value).toLocaleString()}/mo`;
+          hiddenInput.value = e.target.value;
+          calculate();
+        });
+      }
+
+      inputs.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.addEventListener('input', calculate);
+      });
+
+      // Scenario Presets
+      document.querySelectorAll('.preset-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.getElementById('fire-current-age').value = btn.dataset.age;
+          document.getElementById('fire-networth').value = btn.dataset.networth;
+          document.getElementById('fire-annual-expenses').value = btn.dataset.expenses;
+          slider.value = btn.dataset.savings;
+          hiddenInput.value = btn.dataset.savings;
+          valDisplay.textContent = `${currSym}${Number(btn.dataset.savings).toLocaleString()}/mo`;
+          calculate();
+        });
+      });
+
+      const currSelect = document.getElementById('currency-select');
+      if (currSelect) {
+        currSelect.addEventListener('change', (e) => {
+          currSym = e.target.value;
+          updateCurrencyDisplay();
+          valDisplay.textContent = `${currSym}${Number(slider.value).toLocaleString()}/mo`;
+          calculate();
+        });
+      }
+
+      calculate();
+      if (window.FinCastRelatedTools) window.FinCastRelatedTools.render('related-tools-mount', 'fire-simulator');
+    });
+  </script>
+</body>
+</html>

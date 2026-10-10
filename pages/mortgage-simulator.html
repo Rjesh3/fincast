@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mortgage & Early Payoff Simulator — Extra Principal Calculator | FinCast</title>
+  <meta name="description" content="Simulate mortgage amortization schedules. Test the impact of extra monthly principal payments, calculate total interest saved, and view your accelerated payoff date.">
+  <meta name="keywords" content="mortgage calculator, mortgage payoff calculator, extra principal payment, 15 vs 30 year mortgage, amortization schedule">
+  <link rel="canonical" href="https://fincast.app/pages/mortgage-simulator.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://fincast.app/pages/mortgage-simulator.html">
+  <meta property="og:title" content="Mortgage & Early Payoff Simulator — FinCast">
+  <meta property="og:description" content="Simulate extra mortgage payments and see how much interest and time you can knock off your home loan.">
+  <meta property="og:image" content="https://fincast.app/assets/og-preview.svg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mortgage & Early Payoff Simulator — Extra Principal Calculator | FinCast">
+  <meta name="twitter:description" content="Simulate mortgage amortization schedules. Test the impact of extra monthly principal payments, calculate total interest saved, and view your accelerated payoff date.">
+  <meta name="twitter:image" content="https://fincast.app/assets/og-preview.svg">
+
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/tools.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Mortgage & Early Payoff Simulator — Extra Principal Calculator | FinCast",
+    "description": "Simulate mortgage amortization schedules. Test the impact of extra monthly principal payments, calculate total interest saved, and view your accelerated payoff date.",
+    "url": "https://fincast.app/pages/mortgage-simulator.html",
+    "publisher": {
+      "@type": "Organization",
+      "name": "FinCast",
+      "logo": "https://fincast.app/assets/logo.svg"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="../index.html" class="brand-logo" aria-label="FinCast Home">
+        <svg viewBox="0 0 32 32" width="28" height="28" fill="none">
+          <rect width="32" height="32" rx="8" fill="#1E293B"/>
+          <path d="M7 23L13 15L18 19L25 9" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="25" cy="9" r="2.5" fill="#38BDF8"/>
+        </svg>
+        <span>Fin<span class="highlight">Cast</span></span>
+      </a>
+
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-links">
+          <li><a href="debt-freedom-simulator.html" class="nav-link">Debt Freedom</a></li>
+          <li><a href="investment-simulator.html" class="nav-link">Investment What-If</a></li>
+          <li><a href="mortgage-simulator.html" class="nav-link active">Mortgage</a></li>
+          <li><a href="paycheck-tax-simulator.html" class="nav-link">Paycheck &amp; Tax</a></li>
+          <li><a href="tools-directory.html" class="nav-link">All Tools</a></li>
+          <li><a href="trust-center.html" class="nav-link">Trust Center</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="search-trigger-btn" aria-label="Search tools">
+          <span>🔍</span>
+          <span>Search</span>
+          <kbd>Ctrl+K</kbd>
+        </button>
+        <button class="mobile-nav-toggle" aria-label="Open mobile menu" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top: 2rem; padding-bottom: 4rem;">
+    <ul class="breadcrumb">
+      <li><a href="../index.html">Home</a></li>
+      <li class="breadcrumb-separator">/</li>
+      <li><a href="tools-directory.html">Tools</a></li>
+      <li class="breadcrumb-separator">/</li>
+      <li aria-current="page">Mortgage Simulator</li>
+    </ul>
+
+    <div style="max-width: 800px; margin-bottom: 2rem;">
+      <div class="badge badge-emerald" style="margin-bottom: 0.75rem;">🏠 Real Estate &amp; Amortization</div>
+      <h1>Mortgage &amp; Early Payoff Simulator</h1>
+      <p style="font-size: 1.1rem; margin-top: 0.5rem;">
+        Simulate how adding an extra $100, $250, or $500/month directly to your principal balance eliminates thousands of dollars in interest and cuts years off your 15 or 30-year loan.
+      </p>
+    </div>
+
+    <!-- Ad Hook -->
+    <div class="ad-slot-container" data-ad-slot="top-banner"></div>
+
+    <div class="calculator-layout">
+      <!-- Input Panel -->
+      <div class="calc-panel-input">
+        <div class="calc-section-header">
+          <h3><span>🏡</span> Loan Details</h3>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;">
+          <div class="form-group" style="margin-bottom: 0;">
+            <label class="form-label" for="mg-price">Home Price ($)</label>
+            <div class="input-with-affix">
+              <span class="input-affix-prefix">$</span>
+              <input type="number" id="mg-price" min="50000" step="10000" value="425000" class="form-control form-control-has-prefix" />
+            </div>
+          </div>
+          <div class="form-group" style="margin-bottom: 0;">
+            <label class="form-label" for="mg-down">Down Payment ($)</label>
+            <div class="input-with-affix">
+              <span class="input-affix-prefix">$</span>
+              <input type="number" id="mg-down" min="0" step="5000" value="85000" class="form-control form-control-has-prefix" />
+            </div>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;">
+          <div class="form-group" style="margin-bottom: 0;">
+            <label class="form-label" for="mg-rate">Interest Rate (%)</label>
+            <div class="input-with-affix">
+              <input type="number" id="mg-rate" min="1" max="15" step="0.125" value="6.75" class="form-control form-control-has-suffix" />
+              <span class="input-affix-suffix">%</span>
+            </div>
+          </div>
+          <div class="form-group" style="margin-bottom: 0;">
+            <label class="form-label" for="mg-term">Loan Term</label>
+            <select id="mg-term" class="form-control">
+              <option value="30" selected>30 Years (Standard)</option>
+              <option value="15">15 Years (Accelerated)</option>
+              <option value="20">20 Years</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Taxes & Insurance -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;">
+          <div>
+            <label class="form-label" for="mg-tax">Annual Property Tax ($)</label>
+            <div class="input-with-affix">
+              <span class="input-affix-prefix">$</span>
+              <input type="number" id="mg-tax" min="0" step="250" value="4800" class="form-control form-control-has-prefix" />
+            </div>
+          </div>
+          <div>
+            <label class="form-label" for="mg-insurance">Annual Home Insurance ($)</label>
+            <div class="input-with-affix">
+              <span class="input-affix-prefix">$</span>
+              <input type="number" id="mg-insurance" min="0" step="100" value="1600" class="form-control form-control-has-prefix" />
+            </div>
+          </div>
+        </div>
+
+        <!-- "What If?" Extra Principal Payment Slider -->
+        <div class="what-if-box">
+          <div class="what-if-badge">✦ "What If" Early Payoff Simulator</div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+            <label class="form-label" for="mg-extra" style="margin: 0; font-weight: 700;">Extra Monthly Principal:</label>
+            <div class="input-with-affix" style="max-width: 120px;">
+              <span class="input-affix-prefix">$</span>
+              <input type="number" id="mg-extra" min="0" max="2500" step="50" value="250" class="form-control form-control-has-prefix" style="font-weight: 700; color: var(--brand-primary);" />
+            </div>
+          </div>
+          <div class="slider-group">
+            <input type="range" id="mg-extra-slider" class="range-slider" min="0" max="1500" step="50" value="250" aria-label="Extra principal payment slider" />
+            <div class="slider-labels">
+              <span>+$0</span>
+              <span>+$750</span>
+              <span>+$1,500/mo</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Results Panel -->
+      <div class="calc-panel-results">
+        <div class="calc-section-header">
+          <h3><span>📊</span> Payoff Projections</h3>
+        </div>
+
+        <!-- Delta Card -->
+        <div class="delta-highlight-card">
+          <div class="delta-title">✦ Extra Payment Impact</div>
+          <div class="delta-metrics-grid">
+            <div class="delta-metric-item">
+              <p>Total Interest Saved</p>
+              <h4 id="mg-interest-saved">$0</h4>
+            </div>
+            <div class="delta-metric-item">
+              <p>Mortgage Freedom</p>
+              <h4 id="mg-years-saved">0 Years Early</h4>
+            </div>
+          </div>
+          <div style="margin-top: 0.75rem; font-size: 0.8rem; color: #D1FAE5;" id="mg-summary-text"></div>
+        </div>
+
+        <!-- Monthly Breakdown -->
+        <div class="comparison-table-wrap">
+          <div class="plan-column">
+            <div class="plan-tag">Total Monthly PITI</div>
+            <div class="plan-value-big" id="mg-monthly-total">$0</div>
+            <div class="plan-row">
+              <span>Principal &amp; Interest:</span>
+              <span id="mg-monthly-pi">$0</span>
+            </div>
+            <div class="plan-row">
+              <span>Taxes &amp; Insurance:</span>
+              <span id="mg-monthly-tax-ins">$0</span>
+            </div>
+          </div>
+
+          <div class="plan-column plan-highlight">
+            <div class="plan-tag">Payoff Timeline</div>
+            <div class="plan-value-big" id="mg-payoff-date" style="color: var(--brand-primary);">Calculating...</div>
+            <div class="plan-row">
+              <span>Total Interest Paid:</span>
+              <span id="mg-total-interest">$0</span>
+            </div>
+            <div class="plan-row">
+              <span>Total Loan Cost:</span>
+              <span id="mg-total-cost">$0</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="chart-container">
+          <div class="chart-header">
+            <span class="chart-title">Mortgage Balance Depletion Over Time</span>
+            <div class="chart-legend">
+              <div class="legend-item"><span class="legend-dot" style="background:#64748B;"></span> 30-Yr Baseline</div>
+              <div class="legend-item"><span class="legend-dot" style="background:#10B981;"></span> With Extra Principal</div>
+            </div>
+          </div>
+          <div id="mg-chart-mount" class="chart-svg-wrap"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="related-tools-mount"></div>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="../index.html" class="brand-logo" aria-label="FinCast Home">
+            <svg viewBox="0 0 32 32" width="24" height="24" fill="none">
+              <rect width="32" height="32" rx="8" fill="#1E293B"/>
+              <path d="M7 23L13 15L18 19L25 9" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="25" cy="9" r="2.5" fill="#38BDF8"/>
+            </svg>
+            <span>Fin<span class="highlight">Cast</span></span>
+          </a>
+          <p>Don’t just calculate it. See what happens.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Simulators</h4>
+          <ul>
+            <li><a href="debt-freedom-simulator.html">Debt Freedom</a></li>
+            <li><a href="investment-simulator.html">Investment What-If</a></li>
+            <li><a href="mortgage-simulator.html">Mortgage Simulator</a></li>
+            <li><a href="paycheck-tax-simulator.html">Paycheck &amp; Tax</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Trust Center</h4>
+          <ul>
+            <li><a href="trust-center.html">Trust Center</a></li>
+            <li><a href="methodology.html">Methodology</a></li>
+            <li><a href="sources.html">Data Sources</a></li>
+            <li><a href="editorial-policy.html">Editorial Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="disclaimer.html">Financial Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 FinCast. All rights reserved. Client-side financial decision simulators.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/config.js"></script>
+  <script src="../js/analytics.js"></script>
+  <script src="../js/engine/mortgage-engine.js"></script>
+  <script src="../js/components/svg-charts.js"></script>
+  <script src="../js/components/share-modal.js"></script>
+  <script src="../js/components/tool-finder.js"></script>
+  <script src="../js/components/ad-manager.js"></script>
+  <script src="../js/components/related-tools.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const inputs = ['mg-price', 'mg-down', 'mg-rate', 'mg-term', 'mg-tax', 'mg-insurance', 'mg-extra'];
+      const extraSlider = document.getElementById('mg-extra-slider');
+      const extraInput = document.getElementById('mg-extra');
+
+      function calculate() {
+        const options = {
+          homePrice: Number(document.getElementById('mg-price').value) || 400000,
+          downPayment: Number(document.getElementById('mg-down').value) || 80000,
+          interestRate: Number(document.getElementById('mg-rate').value) || 6.75,
+          termYears: Number(document.getElementById('mg-term').value) || 30,
+          extraMonthlyPayment: Number(document.getElementById('mg-extra').value) || 0,
+          annualPropertyTax: Number(document.getElementById('mg-tax').value) || 4800,
+          annualHomeInsurance: Number(document.getElementById('mg-insurance').value) || 1600
+        };
+
+        const res = MortgageEngine.calculateMortgage(options);
+
+        document.getElementById('mg-interest-saved').textContent = `$${res.interestSaved.toLocaleString()}`;
+        document.getElementById('mg-years-saved').textContent = `${res.yearsSaved} Years Faster`;
+        document.getElementById('mg-summary-text').textContent = options.extraMonthlyPayment > 0
+          ? `By paying an extra $${options.extraMonthlyPayment}/mo, you save $${res.interestSaved.toLocaleString()} in interest and own your home by ${res.accelerated.payoffDate}.`
+          : 'Slide the extra payment bar to see interest savings.';
+
+        document.getElementById('mg-monthly-total').textContent = `$${res.monthlyTotalPITI.toLocaleString()}`;
+        document.getElementById('mg-monthly-pi').textContent = `$${res.monthlyPI.toLocaleString()}`;
+        document.getElementById('mg-monthly-tax-ins').textContent = `$${Math.round((options.annualPropertyTax + options.annualHomeInsurance) / 12).toLocaleString()}`;
+
+        document.getElementById('mg-payoff-date').textContent = res.accelerated.payoffDate;
+        document.getElementById('mg-total-interest').textContent = `$${res.accelerated.totalInterest.toLocaleString()}`;
+        document.getElementById('mg-total-cost').textContent = `$${res.accelerated.totalCost.toLocaleString()}`;
+
+        const chartMount = document.getElementById('mg-chart-mount');
+        if (chartMount && window.FinCastCharts) {
+          const dataA = res.baseline.yearlySchedule.map(s => ({ value: s.remainingBalance }));
+          const dataB = res.accelerated.yearlySchedule.map(s => ({ value: s.remainingBalance }));
+          dataA.unshift({ value: res.loanAmount });
+          dataB.unshift({ value: res.loanAmount });
+
+          window.FinCastCharts.renderLineChart(chartMount, { dataA, dataB, labelA: '30-Yr Baseline', labelB: 'Accelerated' });
+        }
+      }
+
+      inputs.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.addEventListener('input', calculate);
+      });
+
+      if (extraSlider && extraInput) {
+        extraSlider.addEventListener('input', (e) => {
+          extraInput.value = e.target.value;
+          calculate();
+        });
+        extraInput.addEventListener('input', (e) => {
+          extraSlider.value = e.target.value;
+          calculate();
+        });
+      }
+
+      calculate();
+      if (window.FinCastRelatedTools) window.FinCastRelatedTools.render('related-tools-mount', 'mortgage-simulator');
+    });
+  </script>
+</body>
+</html>
